@@ -3,7 +3,7 @@ package entities;
 import java.util.Date;
 
 /**
- * Created by rebec on 30/03/2017.
+ * Created by rebeca on 30/03/2017.
  */
 
 public class Autoavaliacao {

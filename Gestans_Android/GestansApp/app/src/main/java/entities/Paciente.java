@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ public class Paciente {
     private int numeroDeSemanas;
     private String telefone;
     private String chave;
-    private List<Autoavaliacao> autoavaliacaoList;
+    private ArrayList<Autoavaliacao> autoavaliacoes;
 
     public String getChave() {
         return chave;
@@ -61,6 +62,14 @@ public class Paciente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public ArrayList<Autoavaliacao> getAutoavaliacoes() {
+        return autoavaliacoes;
+    }
+
+    public void setAutoavaliacoes(ArrayList<Autoavaliacao> autoavaliacoes) {
+        this.autoavaliacoes = autoavaliacoes;
     }
 
     @Override
