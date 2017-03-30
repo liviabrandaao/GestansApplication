@@ -19,49 +19,15 @@
         <script src="js/service/medicoService.js"></script>
         
     </head>
-    <body ng-app="medicoController">
-       <div ng-app ng-controller="medicoController" class="container"> 
+    <body ng-app>
+       <div ng-controller="medicoController" class="container"> 
         <div>
             <h1>Cabeçalho</h1>
         </div>
-        <div class="well">
-            <h1>Cadastro médico:</h1>
+        <div ng-view>
+            
         </div>
-        <table ng-if="medicos.length > 0">
-            <thead>
-                <th>Nome </th>
-                <th>CRM </th>
-            </thead>
-            <tbody>
-                <tr ng-repeat="medico in medicos">
-                    <td>{{medico.nome}}</td>
-                    <td>{{medico.crm}}</td>
-                </tr>
-            </tbody>
-        </table>
-        <form>
-        <div class="form-group">
-            <label>Nome:</label>
-            <input ng-model="medico.nome" type="text" ng-minlength="1" ng-maxlenght="40" required class="form-control" placeholder="Nome">
-        </div>
-        <div class="form-group">
-            <label>CPF:</label>
-            <input type="text" ng-model="medico.cpf" ng-pattern="/^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" placeholder="CPF" required class="form-control">
-        </div> 
-        <div class="form-group">
-            <label>CRM:</label>
-            <input type="text" ng-model="medico.crm" ng-minlength="4" ng-maxlength="6" placeholder="CRM" required class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Contato:</label>
-            <input type="text" ng-model="medico.contato" ng-pattern="/^(0[0-9]{2})9[0-9]{4}-[0-9]{4}" placeholder="Contato" required class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Endereço:</label>
-            <input type="text" ng-model="medico.endereco" placeholder="Endereço" required ng-minlength="4" ng-maxlength="50" class="form-control">
-        </div>
-        <button ng-click="adiciona(medico)" ng-disabled="form.$invalid" type="submit" class="btn btn-primary"> Cadastrar </button>
-        </form>   
+          
         <div>
             <h1>Rodapé</h1>
         </div>
