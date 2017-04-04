@@ -1,0 +1,1 @@
+var angulaAppModulo = angular.module('GestansApplication', ['ngRoute', 'ui.router']);

@@ -1,4 +1,4 @@
-angulaAppModulo.controller('medicoController', function (MedicoService, $scope) {
+angulaAppModulo.controller('medicoController', function (MedicoService, $scope, $state) {
 
     $scope.medicos = [];
     
