@@ -40,7 +40,7 @@
         android:layout_toStartOf="@+id/btnmedico"
         android:layout_weight="0.04"
         android:background="@drawable/cast_abc_scrubber_control_off_mtrl_alpha"
-        app:srcCompat="@mipmap/pregnanticon" />
+        app:srcCompat="@drawable/ic_pregnant_woman_black_24dp" />
 
     <TextView
         android:id="@+id/textView2"

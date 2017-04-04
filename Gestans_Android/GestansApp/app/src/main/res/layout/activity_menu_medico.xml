@@ -6,4 +6,27 @@
     android:layout_height="match_parent"
     tools:context="br.edu.ifpb.gestansapp.activities.MenuMedicoActivity">
 
+    <ImageView
+        android:id="@+id/imageAccount"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="43dp"
+        app:srcCompat="@drawable/ic_account_circle_black_24dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/logintv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:fontFamily="serif"
+        android:textColor="@color/common_google_signin_btn_text_light_focused"
+        android:textSize="34sp"
+        android:textStyle="bold|italic"
+        android:textAlignment="center"
+        android:layout_below="@+id/imageAccount"
+        android:layout_centerHorizontal="true" />
+
+
 </RelativeLayout>
