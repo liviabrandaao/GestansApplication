@@ -5,12 +5,12 @@ angulaAppModulo.config(function ($stateProvider, $urlRouterProvider) {
     
     // Estados
     $stateProvider
-        .state('cadastrar', {
-            url: '/cadastrar',
-            templateUrl: 'cadastrar.html'
+        .state('medico.cadastrar', {
+            url: '/medico/cadastrar',
+            templateUrl: 'cadastrarMedico.html'
         })
-        .state('cadastraPaciente', {
-            url: '/cadastrarPaciente',
+        .state('paciente.cadastrar', {
+            url: '/paciente/cadastrar',
             templateUrl: 'cadastrarPaciente.html'
         })
 });
