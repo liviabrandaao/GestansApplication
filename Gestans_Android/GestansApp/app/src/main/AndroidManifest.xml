@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.LoginMedicoActivity" />
         <activity android:name=".activities.MenuMedicoActivity"></activity>
     </application>
 

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.view.View;
 
 import br.edu.ifpb.gestansapp.activities.MainActivity;
-import br.edu.ifpb.gestansapp.activities.MenuMedicoActivity;
+import br.edu.ifpb.gestansapp.activities.LoginMedicoActivity;
 
 /**
  * Created by rebeca on 03/04/2017.
@@ -20,7 +20,7 @@ public class OnClickMenuMedico implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(this.mainActivity, MenuMedicoActivity.class);
+        Intent intent = new Intent(this.mainActivity, LoginMedicoActivity.class);
         this.mainActivity.startActivity(intent);
     }
 }

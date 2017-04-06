@@ -30,7 +30,7 @@ dependencies {
 
 
 
-    
+
     compile 'com.google.android.gms:play-services-plus:10.2.0'
     compile 'com.android.support:multidex:1.0.0'
     compile 'com.android.support:appcompat-v7:25.1.1'
