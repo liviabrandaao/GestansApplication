@@ -48,46 +48,34 @@
 
 </head>
 
-<body ng-cloak layout="column">
-
-    <!-- Menu Superior - Cabeçalho -->
+<body layout="column">
     <md-toolbar>
         Gestans
     </md-toolbar>
-
-    <div flex layout="row">
-        
-        <!-- Menu Lateral -->
-        <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
-
-            <md-toolbar class="md-theme-indigo">
-                <h1 class="md-toolbar-tools">Menu Lateral</h1>
-            </md-toolbar>
-            <md-content layout-padding ng-controller="MenuController">
-                <!-- Menu -->
-                <ul class="nav navbar-nav">
-                    <li><a ui-sref="home">Home</a></li>
-                    <li><a ui-sref="medico/cadastrar">Cadastrar</a></li>
-                </ul>
-            </md-content>
-
-        </md-sidenav>
-
-        <!-- Conteúdo que muda dependendo da navegação escolhida -->
-        <div layout="column" flex>
-            <div class="box1">
-                <div ui-view>
-                    <!-- Conteúdo da rota atual -->
-                </div>
-            </div>
-        </div>
+    
+    <div ng-controller="MenuController">
+  <md-content class="md-padding">
+    <md-nav-bar
+      md-selected-nav-item="currentNavItem"
+      nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-click="goto('home')" name="home">
+        Home
+      </md-nav-item>
+      <md-nav-item md-nav-click="goto('medico/cadastrar')" name="cadastroMedico">
+        Cadastrar Médico
+      </md-nav-item>
+    </md-nav-bar>
+    <div class="ext-content">
+      External content for <span>{{currentNavItem}}</span>.
     </div>
 
-    <!-- Rodapé -->
+    <md-checkbox ng-model="disableInkBar">Disable Ink Bar</md-checkbox>
+
+  </md-content>
+</div>
     <footer>
         Rodapé
     </footer>
-
 </body>
 
 </html>
