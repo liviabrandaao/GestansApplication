@@ -36,7 +36,7 @@ public class LoginMedicoActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginMedicoActivity.this, MenuMedicoActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getApplicationContext(),"Usuário ou senha inválidos!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Chave ou senha inválidos!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -14,6 +14,7 @@ public class Paciente {
     private int numeroDeSemanas;
     private String telefone;
     private String chave;
+    private String senha;
     private ArrayList<Autoavaliacao> autoavaliacoes;
 
     public String getChave() {
@@ -64,6 +65,14 @@ public class Paciente {
         this.telefone = telefone;
     }
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public ArrayList<Autoavaliacao> getAutoavaliacoes() {
         return autoavaliacoes;
     }
@@ -84,10 +93,15 @@ public class Paciente {
             return false;
         if (getEmail() != null ? !getEmail().equals(paciente.getEmail()) : paciente.getEmail() != null)
             return false;
-        if (!getCPF().equals(paciente.getCPF())) return false;
+        if (getCPF() != null ? !getCPF().equals(paciente.getCPF()) : paciente.getCPF() != null)
+            return false;
         if (getTelefone() != null ? !getTelefone().equals(paciente.getTelefone()) : paciente.getTelefone() != null)
             return false;
-        return getChave().equals(paciente.getChave());
+        if (getChave() != null ? !getChave().equals(paciente.getChave()) : paciente.getChave() != null)
+            return false;
+        if (getSenha() != null ? !getSenha().equals(paciente.getSenha()) : paciente.getSenha() != null)
+            return false;
+        return getAutoavaliacoes() != null ? getAutoavaliacoes().equals(paciente.getAutoavaliacoes()) : paciente.getAutoavaliacoes() == null;
 
     }
 
@@ -95,22 +109,26 @@ public class Paciente {
     public int hashCode() {
         int result = getNome() != null ? getNome().hashCode() : 0;
         result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
-        result = 31 * result + getCPF().hashCode();
+        result = 31 * result + (getCPF() != null ? getCPF().hashCode() : 0);
         result = 31 * result + getNumeroDeSemanas();
         result = 31 * result + (getTelefone() != null ? getTelefone().hashCode() : 0);
-        result = 31 * result + getChave().hashCode();
+        result = 31 * result + (getChave() != null ? getChave().hashCode() : 0);
+        result = 31 * result + (getSenha() != null ? getSenha().hashCode() : 0);
+        result = 31 * result + (getAutoavaliacoes() != null ? getAutoavaliacoes().hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Paciente{" +
-                "chave='" + chave + '\'' +
-                ", nome='" + nome + '\'' +
+                "nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", CPF='" + CPF + '\'' +
                 ", numeroDeSemanas=" + numeroDeSemanas +
                 ", telefone='" + telefone + '\'' +
+                ", chave='" + chave + '\'' +
+                ", senha='" + senha + '\'' +
+                ", autoavaliacoes=" + autoavaliacoes +
                 '}';
     }
 }
