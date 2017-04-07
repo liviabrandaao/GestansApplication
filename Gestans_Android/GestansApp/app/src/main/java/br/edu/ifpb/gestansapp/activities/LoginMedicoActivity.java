@@ -13,7 +13,7 @@ import butterknife.ButterKnife;
 
 public class LoginMedicoActivity extends AppCompatActivity {
 
-    @BindView(R.id.edtCRMlogin) EditText edtCRM;
+    @BindView(R.id.edtSenhaMedicologin) EditText edtSenha;
     @BindView(R.id.edtChaveMedicologin) EditText edtChave;
     @BindView(R.id.btnEntrar) Button btnEntrar;
     @BindView(R.id.btnCadastrarMedico) Button btnCadastrar;
@@ -29,15 +29,16 @@ public class LoginMedicoActivity extends AppCompatActivity {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String crm = edtCRM.getText().toString();
-                String chave = edtChave.getText().toString();
 
-                if (crm.equals("admin") && chave.equals("admin")){
+                String chave = edtChave.getText().toString();
+                String senha = edtSenha.getText().toString();
+
+                if (senha.equals("admin") && chave.equals("admin")){
                     Intent intent = new Intent(LoginMedicoActivity.this, MenuMedicoActivity.class);
                     startActivity(intent);
                 } else {
-                    edtCRM.setText("");
                     edtChave.setText("");
+                    edtSenha.setText("");
                 }
             }
         });
