@@ -14,6 +14,15 @@ public class Medico {
     private String chave;
     private String senha;
 
+    public Medico(String nome, String email, String CPF, String CRM, String telefone, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.CPF = CPF;
+        this.CRM = CRM;
+        this.telefone = telefone;
+        this.senha = senha;
+    }
+
 
     public String getCRM() {
         return CRM;
