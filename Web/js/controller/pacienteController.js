@@ -2,7 +2,7 @@ angulaAppModulo.controller('pacienteController', function (PacienteService, $sco
 
     $scope.pacientes = [];
 
-    $scope.adiciona = function () {
+    $scope.adicionaPaciente = function () {
 
         PacienteService.cadastrarPaciente($scope.paciente)
             .then(function (response) {

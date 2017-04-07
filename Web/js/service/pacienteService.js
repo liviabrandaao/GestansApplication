@@ -1,6 +1,6 @@
 angulaAppModulo.factory("PacienteService", function($http) {
 
-    var urlBase = "http://localhost:8080/GestansApplication";
+    var urlBase = "http://localhost:8080/Web";
     
     var _cadastrarPaciente = function(paciente){
 		return $http.post(urlBase + "/medico/cadastroPaciente", paciente)

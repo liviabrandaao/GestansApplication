@@ -1,3 +1,86 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    
+    <!-- Angular -->
+    <script type="application/javascript" src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+    <script src="js/lib/angular-ui-router.min.js"></script>
+    <script src="js/lib/angular-sanitize.min.js"></script>
+    <script src="js/lib/angular-animate.min.js"></script>
+    <script src="js/lib/angular-aria.min.js"></script>
+    
+    <!-- Angular Material -->
+    <script src="js/lib/angular-material.min.js"></script>
+    <link rel="stylesheet" href="css/angular-material.min.css">
+    
+    <!-- JQuery -->
+    <script src="js/lib/jquery.min.js"></script>
+    
+    <!-- Bootstrap -->
+    <script src="js/lib/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Tether - Dependência obrigatória do Bootstrap -->
+    <script src="js/lib/tether.min.js"></script>
+    <link rel="stylesheet" href="css/tether.min.css">
+    
+    <!-- App -->
+    <script src="js/app.js"></script>
+    <script src="js/router/router.js"></script>
+    <script src="js/router/state.js"></script>
+
+    <!-- Controller -->
+    <script src="js/controller/medicoController.js"></script>
+    <script src="js/controller/pacienteController.js"></script>
+    <script src="js/controller/loginController.js"></script>
+
+    <!-- Service -->
+    <script src="js/service/medicoService.js"></script>
+    <script src="js/service/pacienteService.js"></script>
+    <script src="js/service/loginService.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilo.css">
+
+</head>
+
+<body>
+    <div ng-cloak class="container">
+        <div id="box-div" ng-controller="medicoController">
+	       <div class="login-box">
+		      <div class="lb-header">
+			     <a href="#" class="active" id="login-box-link">Login</a>
+			     <a href="signUpPage.html" id="signup-box-link">Cadastrar</a>
+		         <form name="formLogin" class="email-login" action="" method="post">
+			         <div class="u-form-group">
+				        <input id="crm" type="text" name="crm" placeholder="CRM" required="required" ng-model="medico.crm"/>
+			         </div>
+                     <div class="u-form-group">
+				        <input id="chave" type="password" placeholder="Chave de Acesso" required="required" ng-model="professor.cpf"/>
+                     </div>
+			         <div class="u-form-group">
+				        <button ng-click="go(/home)">Log in</button>
+			         </div>
+			         <div class="u-form-group">
+				        <a href="#" class="forgot-password">Esqueceu a senha?</a>
+			         </div>
+		         </form>
+	           </div>
+	       </div>
+            
+
+
+            <button class="btn btn-primary" type="submit" name="action" click="fazerLogin()">Entrar</button>
+    
+        </div>
+    </div>
+        
+</body>
+
+</html>
+<!--
+
 <div class="container" ng-controller="loginController"></div>
 
 <h5>Login</h5>
@@ -15,5 +98,4 @@
         <label class="active" for="senha">Senha</label>
     </div>
 </div>
-
-<button class="btn btn-primary" type="submit" name="action" click="fazerLogin()">Login</button>
+-->
