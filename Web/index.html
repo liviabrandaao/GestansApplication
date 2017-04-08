@@ -49,12 +49,19 @@
 </head>
 
 <body layout="column">
-    <md-toolbar>
+    
+    <div ui-view>
+    
+    </div>
+    
+    <md-toolbar >
         Gestans
     </md-toolbar>
     
     <div ng-controller="MenuController">
+        
   <md-content class="md-padding">
+      
     <md-nav-bar
       md-selected-nav-item="currentNavItem"
       nav-bar-aria-label="navigation links">
@@ -65,12 +72,7 @@
         Cadastrar Médico
       </md-nav-item>
     </md-nav-bar>
-    <div class="ext-content">
-      External content for <span>{{currentNavItem}}</span>.
-    </div>
-
-    <md-checkbox ng-model="disableInkBar">Disable Ink Bar</md-checkbox>
-
+      
   </md-content>
 </div>
     <footer>

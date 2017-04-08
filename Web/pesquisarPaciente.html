@@ -1,0 +1,46 @@
+<div class="container" ng-controller="medicoController">
+
+    <div class="row">
+        <div class="page-header">
+            <h1>Pesquisar Pacientes</h1>
+        </div>
+    </div>
+    
+    <div class="row">
+        
+        <form name="formPesquisa">
+            <input type="text" ng-model="nome" ng-keyup="pesquisarPacientePorNome(nome)" placeholder="Nome da Paciente">
+            <button class="btn btn-primary" ng-click="limparFormulario()">Limpar
+            </button>
+        </form>
+    </div>
+    
+     <div class="row">
+
+        <!-- Listar todos as pacientes, não pesquisa pelo nome -->
+        <button class="btn btn-primary" ng-click="listarPacientes()">
+            Listar todas as Pacientes
+        </button>
+    </div>
+    
+    <!-- Exibir lista de Pacientes -->
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Contato</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="paciente in pacientes">
+                    <td>{{ paciente.nome }}</td>
+                    <td>{{ paciente.email }}</td>
+                    <td>{{ paciente.contato }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>

@@ -20,3 +20,6 @@ footer {
   background-color: #FFF2E0; 
 }
 
+md.toolbar {
+    border: 5px solid pink
+}

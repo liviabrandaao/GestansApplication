@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('navBarDemoBasicUsage', ['ngMaterial'])
-      .controller('MenuController', Web);
+      .controller('MenuController');
 
   function Menu($scope) {
     $scope.currentNavItem = 'home';
