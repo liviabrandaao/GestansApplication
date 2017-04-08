@@ -25,11 +25,11 @@
         android:id="@+id/btnmedico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/cast_expanded_controller_ad_container_white_stripe_color"
-        app:srcCompat="@mipmap/doctoricon"
-        android:layout_marginEnd="86dp"
+        android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginEnd="86dp"
+        android:backgroundTint="@android:color/transparent"
+        app:srcCompat="@mipmap/doctoricon" />
 
     <ImageButton
         android:id="@+id/btngravida"
@@ -39,21 +39,21 @@
         android:layout_marginEnd="83dp"
         android:layout_toStartOf="@+id/btnmedico"
         android:layout_weight="0.04"
-        android:background="@drawable/cast_abc_scrubber_control_off_mtrl_alpha"
+        android:background="@android:color/transparent"
         app:srcCompat="@drawable/ic_pregnant_woman_black_24dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quem é você?"
+        android:text="Quem é você? "
+        android:layout_centerInParent="true"
         android:fontFamily="cursive"
         android:textColor="@color/common_google_signin_btn_text_light_focused"
         android:textSize="40sp"
         android:textStyle="bold|italic"
         android:textAlignment="center"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp" />
 
 

@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.edu.ifpb.gestansapp.activities.CadastrarMedicoActivity"
+    tools:context="br.edu.ifpb.gestansapp.activities.CadastrarPacienteActivity"
     android:id="@+id/relativeLt">
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btnMedVoltarLogin"
+        android:id="@+id/btnPacVoltarLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -36,9 +36,8 @@
                 android:id="@+id/cadastrarTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginRight="@+id/btnMedVoltarLogin"
+                android:layout_marginEnd="@+id/btnPacVoltarLogin"
                 android:fontFamily="serif"
                 android:text="Cadastre-se"
                 android:textAlignment="center"
@@ -47,12 +46,12 @@
                 android:textStyle="bold|italic" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/inputLayoutMedCadNome"
+                android:id="@+id/inputLayoutPacCadNome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/edtMedNomeCad"
+                    android:id="@+id/edtPacNomeCad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nome"
@@ -63,12 +62,12 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/inputLayoutMedCadEmail"
+                android:id="@+id/inputLayoutPacCadEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/edtMedEmailCad"
+                    android:id="@+id/edtPacEmailCad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
@@ -78,12 +77,12 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/inputLayoutMedCadCPF"
+                android:id="@+id/inputLayoutPacCadCPF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/edtMedCPFCad"
+                    android:id="@+id/edtPacCPFCad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="CPF"
@@ -93,27 +92,12 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/inputLayoutMedCadCRM"
+                android:id="@+id/inputLayoutPacCadTelefone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/edtMedCRMCad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="CRM"
-                    android:textColorHint="@color/colorPrimary"
-                    android:textColorHighlight="@color/colorPrimary"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/inputLayoutMedCadTelefone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/edtMedTelCad"
+                    android:id="@+id/edtPacTelCad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Telefone"
@@ -124,49 +108,89 @@
 
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/inputLayoutMedCadSenha"
+                android:id="@+id/inputLayoutPacCadSenha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/edtMedSenhaCad"
+                    android:id="@+id/editText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/edtPacSenhaCad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Senha"
                     android:inputType="textPassword"
+                    android:hint="Senha"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHighlight="@color/colorPrimary"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayoutPacCadQuantS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edtPacQuantSCad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Quantidade de semanas (atual)"
+                    android:inputType="number"
                     android:textColorHint="@color/colorPrimary"
                     android:textColorHighlight="@color/colorPrimary"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/inputLayoutMedCadChve"
+                android:id="@+id/inputLayoutPacCadMotivo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/edtMedChaveCad"
+                    android:id="@+id/edtPacMotivoCad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Chave (compartilhada com as pacientes)"
+                    android:hint="Motivo para classificação de risco"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHighlight="@color/colorPrimary"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayoutPacCadChave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edtPacChaveCad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Chave do(a) médico(a) responsável"
                     android:textColorHint="@color/colorPrimary"
                     android:textColorHighlight="@color/colorPrimary"/>
 
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/btnCadastrar"
+                android:id="@+id/btnCadastrarPac"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:text="Cadastrar"
                 android:textColor="@color/cast_expanded_controller_text_color"
-                tools:layout_editor_absoluteX="8dp"
                 android:theme="@style/MyButton"
-                android:layout_gravity="center_horizontal"
 
-                />
+                tools:layout_editor_absoluteX="8dp" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

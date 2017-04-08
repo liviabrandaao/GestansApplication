@@ -12,10 +12,22 @@ public class Paciente {
     private String email;
     private String CPF;
     private int numeroDeSemanas;
+    private String motivo;
     private String telefone;
     private String chave;
     private String senha;
     private ArrayList<Autoavaliacao> autoavaliacoes;
+
+    public Paciente(String nome, String email, String CPF, int numeroDeSemanas, String telefone, String chave, String senha, String motivo) {
+        this.nome = nome;
+        this.email = email;
+        this.CPF = CPF;
+        this.numeroDeSemanas = numeroDeSemanas;
+        this.telefone = telefone;
+        this.chave = chave;
+        this.senha = senha;
+        this.motivo = motivo;
+    }
 
     public String getChave() {
         return chave;
@@ -73,6 +85,14 @@ public class Paciente {
         this.senha = senha;
     }
 
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
+    }
+
     public ArrayList<Autoavaliacao> getAutoavaliacoes() {
         return autoavaliacoes;
     }
@@ -95,13 +115,13 @@ public class Paciente {
             return false;
         if (getCPF() != null ? !getCPF().equals(paciente.getCPF()) : paciente.getCPF() != null)
             return false;
+        if (getMotivo() != null ? !getMotivo().equals(paciente.getMotivo()) : paciente.getMotivo() != null)
+            return false;
         if (getTelefone() != null ? !getTelefone().equals(paciente.getTelefone()) : paciente.getTelefone() != null)
             return false;
         if (getChave() != null ? !getChave().equals(paciente.getChave()) : paciente.getChave() != null)
             return false;
-        if (getSenha() != null ? !getSenha().equals(paciente.getSenha()) : paciente.getSenha() != null)
-            return false;
-        return getAutoavaliacoes() != null ? getAutoavaliacoes().equals(paciente.getAutoavaliacoes()) : paciente.getAutoavaliacoes() == null;
+        return getSenha() != null ? getSenha().equals(paciente.getSenha()) : paciente.getSenha() == null;
 
     }
 
@@ -111,10 +131,10 @@ public class Paciente {
         result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
         result = 31 * result + (getCPF() != null ? getCPF().hashCode() : 0);
         result = 31 * result + getNumeroDeSemanas();
+        result = 31 * result + (getMotivo() != null ? getMotivo().hashCode() : 0);
         result = 31 * result + (getTelefone() != null ? getTelefone().hashCode() : 0);
         result = 31 * result + (getChave() != null ? getChave().hashCode() : 0);
         result = 31 * result + (getSenha() != null ? getSenha().hashCode() : 0);
-        result = 31 * result + (getAutoavaliacoes() != null ? getAutoavaliacoes().hashCode() : 0);
         return result;
     }
 
@@ -125,10 +145,10 @@ public class Paciente {
                 ", email='" + email + '\'' +
                 ", CPF='" + CPF + '\'' +
                 ", numeroDeSemanas=" + numeroDeSemanas +
+                ", motivo='" + motivo + '\'' +
                 ", telefone='" + telefone + '\'' +
                 ", chave='" + chave + '\'' +
                 ", senha='" + senha + '\'' +
-                ", autoavaliacoes=" + autoavaliacoes +
                 '}';
     }
 }

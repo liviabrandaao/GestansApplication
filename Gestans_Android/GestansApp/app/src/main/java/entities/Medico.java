@@ -14,13 +14,14 @@ public class Medico {
     private String chave;
     private String senha;
 
-    public Medico(String nome, String email, String CPF, String CRM, String telefone, String senha) {
+    public Medico(String nome, String email, String CPF, String CRM, String telefone, String senha, String chave) {
         this.nome = nome;
         this.email = email;
         this.CPF = CPF;
         this.CRM = CRM;
         this.telefone = telefone;
         this.senha = senha;
+        this.chave = chave;
     }
 
 
