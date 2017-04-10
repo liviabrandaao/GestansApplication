@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.edu.ifpb.gestansapp.activities.AddAutoAvaliacaoActivity">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnVoltarMenuPac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:clickable="true"
+        app:backgroundTint="@color/colorAccent"
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        tools:ignore="MissingConstraints"
+        app:fabSize="mini"
+        android:layout_alignBottom="@+id/imageAccount"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="18dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignStart="@+id/btnVoltarMenuPac"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="O que você está sentindo?"
+                android:fontFamily="serif"
+                android:textColor="@color/common_google_signin_btn_text_light_focused"
+                android:textSize="23sp"
+                android:textStyle="bold|italic"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl1">
+
+                <TextView
+                    android:id="@+id/tvdor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dor"
+                    android:layout_marginTop="33dp"
+                    android:layout_marginStart="20dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <Spinner
+                    android:id="@+id/spinnerDor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tvdor"
+                    android:layout_marginTop="33dp"
+                    android:layout_marginStart="5dp"
+                 />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/inputLayoutLocalDor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvdor"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="20dp">
+
+                    <EditText
+                        android:id="@+id/edtLocalDor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Local da dor"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvFebre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Febre"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="20dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/inputLayoutLocalDor"/>
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rgFebre"
+                    android:orientation="horizontal"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/spinnerDor">
+
+                    <RadioButton
+                        android:id="@+id/rbFebreSim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sim"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary"
+                        android:checked="true"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/rbFebreNao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Não"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary"/>
+
+                </RadioGroup>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl2">
+
+                <TextView
+                    android:id="@+id/tvSangramento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sangramento"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/rgSangramento"
+                    android:layout_alignTop="@+id/tvSangramento"
+                    android:layout_toEndOf="@+id/tvSangramento"
+                    android:layout_marginStart="18dp">
+
+
+                    <RadioButton
+                        android:id="@+id/rbSangramentoSim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sim"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary"
+                        android:checked="true" />
+
+                    <RadioButton
+                        android:id="@+id/rbSangramentoNao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:text="Não"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary" />
+
+                </RadioGroup>
+
+
+
+            </RelativeLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayoutOutros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvSangramento"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="20dp">
+
+                <EditText
+                    android:id="@+id/edtOutros"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Outros sintomas"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salvar autoavaliação"
+        android:theme="@style/MyButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="137dp"
+        android:id="@+id/btnSalvarAutoAv"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

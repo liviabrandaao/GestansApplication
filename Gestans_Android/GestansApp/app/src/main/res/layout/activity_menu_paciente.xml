@@ -39,7 +39,9 @@
         android:layout_below="@+id/tvBemVinda"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="137dp"
-        android:id="@+id/btnVerAutoAv"/>
+        android:id="@+id/btnVerAutoAv"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:textStyle="bold"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btnAddAutoAv"

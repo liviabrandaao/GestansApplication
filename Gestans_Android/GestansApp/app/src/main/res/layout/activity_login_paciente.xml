@@ -48,7 +48,8 @@
                     android:id="@+id/edtChavePacientelogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Chave"/>
+                    android:hint="Chave"
+                    android:textColorHint="@color/colorPrimary"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -62,7 +63,8 @@
                     android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Senha"/>
+                    android:hint="Senha"
+                    android:textColorHint="@color/colorPrimary"/>
 
             </android.support.design.widget.TextInputLayout>
 

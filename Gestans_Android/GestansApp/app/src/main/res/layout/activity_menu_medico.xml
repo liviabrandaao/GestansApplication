@@ -39,7 +39,9 @@
             android:layout_below="@+id/tvBemVindo"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="137dp"
-            android:id="@+id/btnPesquisarPacientes"/>
+            android:id="@+id/btnPesquisarPacientes"
+            android:textStyle="bold"
+            android:textColor="@color/cast_expanded_controller_text_color"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -48,7 +50,9 @@
             android:theme="@style/MyButton"
             android:layout_below="@+id/btnPesquisarPacientes"
             android:layout_centerHorizontal="true"
-            android:id="@+id/btnVerAtualizaçõesRecentes"/>
+            android:textStyle="bold"
+            android:id="@+id/btnVerAtualizaçõesRecentes"
+            android:textColor="@color/cast_expanded_controller_text_color"/>
 
 
 

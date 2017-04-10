@@ -2,12 +2,14 @@ package br.edu.ifpb.gestansapp.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import br.edu.ifpb.gestansapp.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import listeners.OnClickMenuMedico;
+import listeners.OnClickMenuPaciente;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +22,6 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         btnmedico.setOnClickListener(new OnClickMenuMedico(this));
-        //btngravida.setOnClickListener();
+        btngravida.setOnClickListener(new OnClickMenuPaciente(this));
     }
 }

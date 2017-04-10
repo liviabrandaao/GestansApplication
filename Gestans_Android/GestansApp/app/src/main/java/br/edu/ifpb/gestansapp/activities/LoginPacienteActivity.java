@@ -45,8 +45,8 @@ public class LoginPacienteActivity extends AppCompatActivity {
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Intent intent = new Intent(LoginPacienteActivity.this, CadastrarPacienteActivity.class);
-               // startActivity(intent);
+               Intent intent = new Intent(LoginPacienteActivity.this, CadastrarPacienteActivity.class);
+               startActivity(intent);
             }
         });
 
