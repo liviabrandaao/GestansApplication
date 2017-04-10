@@ -65,7 +65,7 @@
                     android:id="@+id/spinnerDor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/tvdor"
+                    android:layout_toEndOf="@+id/tvdor"
                     android:layout_marginTop="33dp"
                     android:layout_marginStart="5dp"
                  />
@@ -181,7 +181,6 @@
                 android:id="@+id/inputLayoutOutros"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvSangramento"
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="20dp">
 

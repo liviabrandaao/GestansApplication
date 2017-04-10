@@ -40,8 +40,8 @@ public class MenuPacienteActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent intent = new Intent(MenuPacienteActivity.this,AddAutoAvaliacaoActivity.class);
-                startActivity(intent); */
+                Intent intent = new Intent(MenuPacienteActivity.this,AddAutoAvaliacaoActivity.class);
+                startActivity(intent);
             }
         });
     }
