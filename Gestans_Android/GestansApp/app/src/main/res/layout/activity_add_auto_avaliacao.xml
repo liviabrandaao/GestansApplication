@@ -49,13 +49,13 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/rl1">
+                android:id="@+id/rldor">
 
                 <TextView
                     android:id="@+id/tvdor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dor"
+                    android:text="Dor muscular "
                     android:layout_marginTop="33dp"
                     android:layout_marginStart="20dp"
                     android:textSize="20sp"
@@ -97,40 +97,19 @@
                     android:textStyle="bold"
                     android:layout_below="@+id/inputLayoutLocalDor"/>
 
-                <RadioGroup
+                <Spinner
+                    android:id="@+id/spinnerFebre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/rgFebre"
-                    android:orientation="horizontal"
-                    android:layout_alignParentBottom="true"
-                    android:layout_toEndOf="@+id/spinnerDor">
-
-                    <RadioButton
-                        android:id="@+id/rbFebreSim"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sim"
-                        android:textColorHint="@color/colorPrimary"
-                        android:textColorHighlight="@color/colorPrimary"
-                        android:checked="true"
-                        />
-
-                    <RadioButton
-                        android:id="@+id/rbFebreNao"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Não"
-                        android:textColorHint="@color/colorPrimary"
-                        android:textColorHighlight="@color/colorPrimary"/>
-
-                </RadioGroup>
-
+                    android:layout_toEndOf="@+id/tvFebre"
+                    android:layout_below="@+id/inputLayoutLocalDor"
+                    />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/rl2">
+                android:id="@+id/rlsangramento">
 
                 <TextView
                     android:id="@+id/tvSangramento"
@@ -159,8 +138,7 @@
                         android:layout_height="wrap_content"
                         android:text="Sim"
                         android:textColorHint="@color/colorPrimary"
-                        android:textColorHighlight="@color/colorPrimary"
-                        android:checked="true" />
+                        android:textColorHighlight="@color/colorPrimary" />
 
                     <RadioButton
                         android:id="@+id/rbSangramentoNao"
@@ -169,12 +147,470 @@
                         android:layout_marginStart="18dp"
                         android:text="Não"
                         android:textColorHint="@color/colorPrimary"
-                        android:textColorHighlight="@color/colorPrimary" />
+                        android:textColorHighlight="@color/colorPrimary"
+                        android:checked="true"/>
 
                 </RadioGroup>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rlfaltadear">
+
+                    <TextView
+                        android:id="@+id/tvFaltadear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Falta de ar"
+                        android:textSize="20sp"
+                        android:layout_marginStart="20dp"
+                        android:textStyle="bold"
+                        android:layout_alignParentTop="true" />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/rgFaltadear"
+                        android:layout_alignTop="@+id/tvFaltadear"
+                        android:layout_toEndOf="@+id/tvFaltadear"
+                        android:layout_marginStart="18dp">
 
 
+                        <RadioButton
+                            android:id="@+id/rbFaltaSim"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sim"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textColorHighlight="@color/colorPrimary" />
 
+                        <RadioButton
+                            android:id="@+id/rbFaltaNao"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="18dp"
+                            android:text="Não"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textColorHighlight="@color/colorPrimary"
+                            android:checked="true"/>
+
+                    </RadioGroup>
+                </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rlcansaco">
+
+                <TextView
+                    android:id="@+id/tvcansaco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cansaço extremo"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/rgcansaco"
+                    android:layout_alignTop="@+id/tvcansaco"
+                    android:layout_toEndOf="@+id/tvcansaco"
+                    android:layout_marginStart="18dp">
+
+
+                    <RadioButton
+                        android:id="@+id/rbCansacoSim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sim"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary" />
+
+                    <RadioButton
+                        android:id="@+id/rbCansacoNao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:text="Não"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary"
+                        android:checked="true"/>
+
+                </RadioGroup>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rltosse">
+
+                <TextView
+                    android:id="@+id/tvtosse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tosse forte"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/rgtosse"
+                    android:layout_alignTop="@+id/tvtosse"
+                    android:layout_toEndOf="@+id/tvtosse"
+                    android:layout_marginStart="18dp">
+
+
+                    <RadioButton
+                        android:id="@+id/rbTosseSim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sim"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary" />
+
+                    <RadioButton
+                        android:id="@+id/rbTosseNao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:text="Não"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary"
+                        android:checked="true"/>
+
+                </RadioGroup>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rldormenciap">
+
+                <TextView
+                    android:id="@+id/tvdormenciap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dormência nas pernas"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/rgdormenciap"
+                    android:layout_alignTop="@+id/tvdormenciap"
+                    android:layout_toEndOf="@+id/tvdormenciap"
+                    android:layout_marginStart="18dp">
+
+
+                    <RadioButton
+                        android:id="@+id/rbDormenciaSim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sim"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary" />
+
+                    <RadioButton
+                        android:id="@+id/rbDormenciaNao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:text="Não"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary"
+                        android:checked="true"/>
+
+                </RadioGroup>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rldormenciabracos">
+
+                <TextView
+                    android:id="@+id/tvdormenciab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dormência nos braços"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/rgdormenciab"
+                    android:layout_alignTop="@+id/tvdormenciab"
+                    android:layout_toEndOf="@+id/tvdormenciab"
+                    android:layout_marginStart="18dp">
+
+
+                    <RadioButton
+                        android:id="@+id/rbDormenciaBSim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sim"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary" />
+
+                    <RadioButton
+                        android:id="@+id/rbDormenciaBNao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:text="Não"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary"
+                        android:checked="true"/>
+
+                </RadioGroup>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rldordegarganta">
+
+                <TextView
+                    android:id="@+id/tvdordegarganta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dor de garganta"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/rgdorgarganta"
+                    android:layout_alignTop="@+id/tvdordegarganta"
+                    android:layout_toEndOf="@+id/tvdordegarganta"
+                    android:layout_marginStart="18dp">
+
+
+                    <RadioButton
+                        android:id="@+id/rbDorGSim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sim"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary" />
+
+                    <RadioButton
+                        android:id="@+id/rbDorGNao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:text="Não"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary"
+                        android:checked="true"/>
+
+                </RadioGroup>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rldoredecabeça">
+
+                <TextView
+                    android:id="@+id/tvdoresdecabeca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dores de cabeça constantes"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/rgdoresdecabeca"
+                    android:layout_alignTop="@+id/tvdoresdecabeca"
+                    android:layout_toEndOf="@+id/tvdoresdecabeca"
+                    android:layout_marginStart="18dp">
+
+
+                    <RadioButton
+                        android:id="@+id/rbFrequentesSim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sim"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary" />
+
+                    <RadioButton
+                        android:id="@+id/rbFrequentesNao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:text="Não"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary"
+                        android:checked="true"/>
+
+                </RadioGroup>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rlpressao">
+
+                <TextView
+                    android:id="@+id/tvpressao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pressão no peito"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/rgpressao"
+                    android:layout_alignTop="@+id/tvpressao"
+                    android:layout_toEndOf="@+id/tvpressao"
+                    android:layout_marginStart="18dp">
+
+
+                    <RadioButton
+                        android:id="@+id/rbPressaoSim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sim"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary" />
+
+                    <RadioButton
+                        android:id="@+id/rbPressaoNao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:text="Não"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary"
+                        android:checked="true"/>
+
+                </RadioGroup>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rltonturas">
+
+                <TextView
+                    android:id="@+id/tvtonturas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tonturas"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/rgtonturas"
+                    android:layout_alignTop="@+id/tvtonturas"
+                    android:layout_toEndOf="@+id/tvtonturas"
+                    android:layout_marginStart="18dp">
+
+
+                    <RadioButton
+                        android:id="@+id/rbtonturaSim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sim"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary" />
+
+                    <RadioButton
+                        android:id="@+id/rbtonturaNao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:text="Não"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary"
+                        android:checked="true"/>
+
+                </RadioGroup>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rldesmaios">
+
+                <TextView
+                    android:id="@+id/tvdesmaios"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Desmaios"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/rgdesmaios"
+                    android:layout_alignTop="@+id/tvdesmaios"
+                    android:layout_toEndOf="@+id/tvdesmaios"
+                    android:layout_marginStart="18dp">
+
+
+                    <RadioButton
+                        android:id="@+id/rbDesmaiosSim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sim"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary" />
+
+                    <RadioButton
+                        android:id="@+id/rbDesmaiosNao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:text="Não"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textColorHighlight="@color/colorPrimary"
+                        android:checked="true"/>
+
+                </RadioGroup>
             </RelativeLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -192,21 +628,21 @@
 
             </android.support.design.widget.TextInputLayout>
 
+            <Button
+                android:id="@+id/btnSalvarAutoAv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="137dp"
+                android:text="Salvar autoavaliação"
+                android:textColor="@color/cast_expanded_controller_text_color"
+                android:textStyle="bold"
+                android:theme="@style/MyButton" />
 
         </LinearLayout>
 
     </ScrollView>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Salvar autoavaliação"
-        android:theme="@style/MyButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="137dp"
-        android:id="@+id/btnSalvarAutoAv"
-        android:textColor="@color/cast_expanded_controller_text_color"
-        android:textStyle="bold"/>
+
 
 </RelativeLayout>
