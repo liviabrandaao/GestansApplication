@@ -25,11 +25,12 @@ public class Autoavaliacao {
     private boolean tonturas;
     private boolean desmaios;
     private String outrosSintomas;
+    private String chavePaciente;
 
     public Autoavaliacao(String dtAvaliacao, String nivelDorMuscular, String nivelFebre, String localDorMuscular,
                          boolean sangramento, boolean faltadear, boolean cansaco, boolean tosse, boolean dordegarganta,
                          boolean dordecabeca, boolean dormenciabracos, boolean dormenciapernas, boolean tonturas, boolean desmaios,
-                         String outrosSintomas) {
+                         String outrosSintomas, String chavePaciente) {
         this.dtAvaliacao = dtAvaliacao;
         this.nivelDorMuscular = nivelDorMuscular;
         this.nivelFebre = nivelFebre;
@@ -45,6 +46,7 @@ public class Autoavaliacao {
         this.tonturas = tonturas;
         this.desmaios = desmaios;
         this.outrosSintomas = outrosSintomas;
+        this.chavePaciente = chavePaciente;
     }
 
     public String getDtAvaliacao() {
@@ -169,6 +171,14 @@ public class Autoavaliacao {
         this.outrosSintomas = outrosSintomas;
     }
 
+    public String getChavePaciente() {
+        return chavePaciente;
+    }
+
+    public void setChavePaciente(String chavePaciente) {
+        this.chavePaciente = chavePaciente;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -194,7 +204,9 @@ public class Autoavaliacao {
             return false;
         if (getLocalDorMuscular() != null ? !getLocalDorMuscular().equals(that.getLocalDorMuscular()) : that.getLocalDorMuscular() != null)
             return false;
-        return getOutrosSintomas() != null ? getOutrosSintomas().equals(that.getOutrosSintomas()) : that.getOutrosSintomas() == null;
+        if (getOutrosSintomas() != null ? !getOutrosSintomas().equals(that.getOutrosSintomas()) : that.getOutrosSintomas() != null)
+            return false;
+        return getChavePaciente() != null ? getChavePaciente().equals(that.getChavePaciente()) : that.getChavePaciente() == null;
 
     }
 
@@ -215,8 +227,10 @@ public class Autoavaliacao {
         result = 31 * result + (isTonturas() ? 1 : 0);
         result = 31 * result + (isDesmaios() ? 1 : 0);
         result = 31 * result + (getOutrosSintomas() != null ? getOutrosSintomas().hashCode() : 0);
+        result = 31 * result + (getChavePaciente() != null ? getChavePaciente().hashCode() : 0);
         return result;
     }
+
 
     @Override
     public String toString() {
