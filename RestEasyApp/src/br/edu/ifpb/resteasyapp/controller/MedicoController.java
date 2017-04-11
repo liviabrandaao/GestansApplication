@@ -27,7 +27,6 @@ public class MedicoController {
 	@Path("/inserir")
 	@Consumes("application/json")
 	@Produces("application/json")
-	
 	public Response insert(Medico medico) {
 		
 		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);

@@ -18,10 +18,18 @@ import com.sun.xml.txw2.annotation.XmlElement;
 public class Medico {
 
 	// Identificador auto-incrementável.
+	
 	@Id
+	@Column(name = "chave_medico", unique = true , nullable = false)
+	private String chave;
+	
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_medico")
 	private Integer id;
+	
+	@Column(name = "senha_medico", nullable = false)
+	private String senha;
 	
 	@Column(name = "nome_medico" , nullable = false)
 	private String nome;
@@ -29,7 +37,7 @@ public class Medico {
 	@Column(name = "email_medico")
 	private String email;
 	
-	@Column(name = "cpf_medico" , nullable = false)
+	@Column(name = "cpf_medico")
 	private Integer cpf;
 	
 	@Column(name = "crm_medico" , nullable = false)
@@ -38,16 +46,29 @@ public class Medico {
 	@Column(name = "telefone_medico" , nullable = false)
 	private Integer telefone;
 	
-	@Column(name = "chave_medico", unique = true , nullable = false)
-	private Integer chave;
-	
 	@XmlElement
+	public String getChave() {
+		return chave;
+	}
+
+	public void setChave(String chave) {
+		this.chave = chave;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	@XmlElement
@@ -92,12 +113,6 @@ public class Medico {
 		this.telefone = telefone;
 	}	
 	
-	public int getChave() {
-		return chave;
-	}
-
-	public void setChave(int chave) {
-		this.chave = chave;
-	}	
+	
 }
 	

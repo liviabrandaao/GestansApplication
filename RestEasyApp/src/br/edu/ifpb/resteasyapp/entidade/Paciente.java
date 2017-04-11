@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -22,10 +23,19 @@ import com.sun.xml.txw2.annotation.XmlElement;
 public class Paciente {
 
 	// Identificador auto-incrementável.
+	
 	@Id
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@PrimaryKeyJoinColumn(name = "fk_chave_medico") // 
+	private Medico chave;
+	
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_paciente")
 	private Integer id;
+	
+	@Column(name = "senha_paciente", nullable = false)
+	private String senha;
 	
 	@Column(name = "nome_paciente", nullable = false)
 	private String nome;
@@ -45,11 +55,16 @@ public class Paciente {
 	@Column(name = "situacao_paciente" , nullable = false)
 	private String situacao;
 	
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_chave_medico") // 
-	private Medico chave;
 	
 	@XmlElement
+	public Medico getChave() {
+		return chave;
+	}
+	
+	public void setChave(Medico chave) {
+		this.chave = chave;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -58,7 +73,14 @@ public class Paciente {
 		this.id = id;
 	}
 
-	@XmlElement
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -109,8 +131,6 @@ public class Paciente {
 		this.situacao = situacao;
 	}
 	
-	public Medico getChave() {
-		return chave;
-	}
+	
 
 }

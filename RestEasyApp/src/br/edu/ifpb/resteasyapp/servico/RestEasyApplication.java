@@ -7,7 +7,7 @@ import javax.ws.rs.core.Application;
 
 import org.jboss.resteasy.plugins.interceptors.CorsFilter;
 
-import br.edu.ifpb.resteasyapp.controller.AlunoController;
+import br.edu.ifpb.resteasyapp.controller.AutoAvaliacaoController;
 import br.edu.ifpb.resteasyapp.controller.MedicoController;
 import br.edu.ifpb.resteasyapp.controller.PacienteController;
 
@@ -29,6 +29,7 @@ public class RestEasyApplication extends Application {
 		// Controllers disponíveis no serviço.
 		this.singletons.add(new MedicoController());	
 		this.singletons.add(new PacienteController());
+		this.singletons.add(new AutoAvaliacaoController());
 	}
 
 	public Set<Class<?>> getClasses() {

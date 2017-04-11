@@ -37,9 +37,10 @@
 		<property name="hibernate.c3p0.preferredTestQuery">select 1;</property>
 		
 		<!-- Entidades -->
-		<mapping class="br.edu.ifpb.resteasyapp.entidade.Medico" />
-		<mapping class="br.edu.ifpb.resteasyapp.entidade.Paciente" />
-		<mapping class="br.edu.ifpb.resteasyapp.entidade.AutoAvaliacao" />									
+		<mapping class="br.edu.ifpb.resteasyapp.entidade.Medico"/>
+		<mapping class="br.edu.ifpb.resteasyapp.entidade.Paciente"/>
+		<mapping class="br.edu.ifpb.resteasyapp.entidade.AutoAvaliacao"/>
+											
 
 	</session-factory>
 </hibernate-configuration>
