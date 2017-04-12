@@ -93,6 +93,7 @@ public class LoginMedicoActivity extends AppCompatActivity {
                             }
                         } catch (Exception e) {
                             Log.e(this.getClass().toString(), e.getMessage().toString());
+                            Toast.makeText(getApplicationContext(),"Chave ou senha inválidos!", Toast.LENGTH_SHORT).show();
                         }
                     }
 

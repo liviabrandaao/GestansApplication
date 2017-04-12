@@ -3,6 +3,7 @@ package br.edu.ifpb.gestansapp.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,12 @@ import android.widget.Toast;
 import br.edu.ifpb.gestansapp.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import entities.Medico;
+import entities.Paciente;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import service.ServerConnection;
 
 public class LoginPacienteActivity extends AppCompatActivity {
 
@@ -29,13 +36,7 @@ public class LoginPacienteActivity extends AppCompatActivity {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean ehValido = validaPaciente();
-                if(ehValido) {
-                    //Intent intent = new Intent(LoginPacienteActivity.this, MenuPacienteActivity.class);
-                   // startActivity(intent);
-                } else {
-                    Toast.makeText(getApplicationContext(),"CPF ou senha inválidos!", Toast.LENGTH_SHORT).show();
-                }
+                validaPaciente();
             }
         });
 
@@ -59,7 +60,48 @@ public class LoginPacienteActivity extends AppCompatActivity {
         });
     }
 
-    public boolean validaPaciente(){
-        return true;
+    public  void validaPaciente(){
+        new Thread(new Runnable() {
+            String cpf = edtCPF.getText().toString();
+            String senha = edtSenha.getText().toString();
+
+            @Override
+            public void run() {
+
+                ServerConnection.getInstance().getService().loginPaciente(cpf, senha);
+
+                Call<Paciente> call = ServerConnection.getInstance().getService().loginPaciente(cpf, senha);
+
+                Log.i(this.getClass().getName(), "Verificando campos");
+
+                call.enqueue(new Callback<Paciente>() {
+                    @Override
+                    public void onResponse(Call<Paciente> call, Response<Paciente> response) {
+
+                        try {
+
+                            if (response.isSuccessful()) {
+
+                                Intent intent = new Intent(LoginPacienteActivity.this, MenuPacienteActivity.class);
+                                intent.putExtra("cpf", cpf);
+                                startActivity(intent);
+
+                            } else {
+                                Log.e(this.getClass().toString(), "Error on calling " + response.code());
+                            }
+                        } catch (Exception e) {
+                            Log.e(this.getClass().toString(), e.getMessage().toString());
+                            Toast.makeText(getApplicationContext(),"CPF ou senha inválidos!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Paciente> call, Throwable t) {
+                        Log.e("onFailure", "Error" + t.getMessage());
+                    }
+                });
+            }
+        }).start();
     }
+
 }

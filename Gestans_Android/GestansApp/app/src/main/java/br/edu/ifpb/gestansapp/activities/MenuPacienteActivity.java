@@ -15,12 +15,16 @@ public class MenuPacienteActivity extends AppCompatActivity {
     @BindView(R.id.btnSair) Button btnSair;
     @BindView(R.id.btnVerAutoAv) Button btnVerAutoAv;
     @BindView(R.id.btnAddAutoAv) Button btnAdd;
+    private String cpfPaciente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_paciente);
         ButterKnife.bind(this);
+
+        Bundle extras = getIntent().getExtras();
+        cpfPaciente = extras.getString("cpf");
 
         btnSair.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +37,9 @@ public class MenuPacienteActivity extends AppCompatActivity {
         btnVerAutoAv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listarAutoavs();
+                Intent intent = new Intent(MenuPacienteActivity.this, ListarAAparaPacienteActivity.class);
+                intent.putExtra("cpf", cpfPaciente);
+                startActivity(intent);
             }
         });
 
@@ -46,7 +52,5 @@ public class MenuPacienteActivity extends AppCompatActivity {
         });
     }
 
-    public void listarAutoavs(){
 
-    }
 }

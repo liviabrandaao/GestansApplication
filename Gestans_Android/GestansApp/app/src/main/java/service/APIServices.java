@@ -25,9 +25,14 @@ public interface APIServices {
     Call<Medico> loginMedico(@Body String chave, String senha);
 
     @POST("paciente/login")
-    Call<Paciente> loginPaciente(@Body Paciente pacienteRecebida);
+    Call<Paciente> loginPaciente(@Body String cpf, String senha);
 
     @POST("autoavaliacoes/listar")
     Call<List<Autoavaliacao>> getAllAutoAvMedico(@Body String chave);
+
+
+    /*Serviço ainda não implementado */
+    @POST("autoavaliacoes/listarIndividual")
+    Call<List<Autoavaliacao>> getAllAutoAvPaciente(@Body String cpf);
 
 }

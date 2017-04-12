@@ -23,7 +23,8 @@
         <activity android:name=".activities.MenuPacienteActivity" />
         <activity android:name=".activities.CadastrarPacienteActivity" />
         <activity android:name=".activities.AddAutoAvaliacaoActivity" />
-        <activity android:name=".activities.ListarAAparaMedicoActivity"></activity>
+        <activity android:name=".activities.ListarAAparaMedicoActivity" />
+        <activity android:name=".activities.ListarAAparaPacienteActivity"></activity>
     </application>
 
 </manifest>
