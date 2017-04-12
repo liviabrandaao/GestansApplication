@@ -1,5 +1,9 @@
 package br.edu.ifpb.resteasyapp.entidade;
 
+import java.sql.SQLException;
+import java.util.Date;
+
+import javax.annotation.security.PermitAll;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,9 +16,18 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.sun.xml.txw2.annotation.XmlElement;
+
+import br.edu.ifpb.resteasyapp.dao.MedicoDAO;
+import br.edu.ifpb.resteasyapp.dao.PacienteDAO;
 
 @XmlRootElement
 @Entity
@@ -24,12 +37,11 @@ public class Paciente {
 
 	// Identificador auto-incrementável.
 	
-	@Id
+	
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@PrimaryKeyJoinColumn(name = "fk_chave_medico") // 
 	private Medico chave;
-	
-	
+		
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_paciente")
 	private Integer id;
@@ -43,6 +55,7 @@ public class Paciente {
 	@Column(name = "email_paciente")
 	private String email;
 	
+	@Id
 	@Column(name = "cpf_paciente" , nullable = false)
 	private Integer cpf;
 	
@@ -132,5 +145,4 @@ public class Paciente {
 	}
 	
 	
-
 }

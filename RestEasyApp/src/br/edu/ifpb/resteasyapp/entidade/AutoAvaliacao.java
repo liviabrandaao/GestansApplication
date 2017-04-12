@@ -1,5 +1,7 @@
 package br.edu.ifpb.resteasyapp.entidade;
 
+import java.sql.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -27,6 +30,13 @@ public class AutoAvaliacao {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_autoAvaliacao")
 	private Integer id;
+	
+	@Column(name = "data_avaliacao")
+	private Date DataAvaliacao;
+	
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@PrimaryKeyJoinColumn(name = "fk_cpf_paciente") // 
+	private Paciente cpf;
 	
 	@Column(name = "dor_muscular")
 	private String dorMuscular;
