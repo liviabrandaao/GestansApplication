@@ -15,11 +15,15 @@ public class MenuMedicoActivity extends AppCompatActivity {
     @BindView(R.id.btnPesquisarPacientes) Button btnpesquisarPacientes;
     @BindView(R.id.btnVerAtualizaçõesRecentes) Button btnverAtualizações;
     @BindView(R.id.btnSair) Button btnsair;
+    private String chaveMedico;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_medico);
         ButterKnife.bind(this);
+
+        Bundle extras = getIntent().getExtras();
+        chaveMedico = extras.getString("Chave");
 
         btnpesquisarPacientes.setOnClickListener(new View.OnClickListener() {
             @Override

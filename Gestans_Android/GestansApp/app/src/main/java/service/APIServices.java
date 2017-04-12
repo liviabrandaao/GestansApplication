@@ -22,10 +22,10 @@ public interface APIServices {
     Call<Paciente> insert(@Body Paciente paciente);
 
     @POST("medico/login")
-    Call<Medico> login(@Body Medico medicoRecebido);
+    Call<Medico> loginMedico(@Body String chave, String senha);
 
     @POST("paciente/login")
-    Call<Paciente> login(@Body Paciente pacienteRecebida);
+    Call<Paciente> loginPaciente(@Body Paciente pacienteRecebida);
 
     @GET("autoavaliacoes/listar")
     Call<List<Autoavaliacao>> getAll();

@@ -3,6 +3,7 @@ package br.edu.ifpb.gestansapp.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,11 @@ import android.widget.Toast;
 import br.edu.ifpb.gestansapp.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import entities.Medico;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import service.ServerConnection;
 
 public class LoginMedicoActivity extends AppCompatActivity {
 
@@ -30,14 +36,7 @@ public class LoginMedicoActivity extends AppCompatActivity {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean ehValido = validaMedico();
-                if(ehValido) {
-                    //consultar no bd qual é o médico e retorná-lo, associando a MenuMedico
-                    Intent intent = new Intent(LoginMedicoActivity.this, MenuMedicoActivity.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(getApplicationContext(),"Chave ou senha inválidos!", Toast.LENGTH_SHORT).show();
-                }
+               validaMedico();
             }
         });
 
@@ -60,10 +59,52 @@ public class LoginMedicoActivity extends AppCompatActivity {
         });
     }
 
-    public boolean validaMedico(){
-        String chave = edtChave.getText().toString();
-        String senha = edtSenha.getText().toString();
+    public void validaMedico() {
 
+        new Thread(new Runnable() {
+            String chave = edtChave.getText().toString();
+            String senha = edtSenha.getText().toString();
+
+            @Override
+            public void run() {
+
+                ServerConnection.getInstance().getService().loginMedico(chave, senha);
+
+                Call<Medico> call = ServerConnection.getInstance().getService().loginMedico(chave, senha);
+
+                Log.i(this.getClass().getName(), "Verificando campos");
+
+                call.enqueue(new Callback<Medico>() {
+                    @Override
+                    public void onResponse(Call<Medico> call, Response<Medico> response) {
+
+                        try {
+
+                            if (response.isSuccessful()) {
+
+                                Medico medico = response.body();
+                                String chaveMed = medico.getChave();
+                                Intent intent = new Intent(LoginMedicoActivity.this, MenuMedicoActivity.class);
+                                intent.putExtra("Chave", chaveMed);
+                                startActivity(intent);
+
+                            } else {
+                                Log.e(this.getClass().toString(), "Error on calling " + response.code());
+                            }
+                        } catch (Exception e) {
+                            Log.e(this.getClass().toString(), e.getMessage().toString());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Medico> call, Throwable t) {
+                        Log.e("onFailure", "Error" + t.getMessage());
+                    }
+                });
+            }
+        }).start();
+    }
+        /*
         //Fazer consulta de verificação
         if (senha.equals("admin") && chave.equals("admin")){
             Intent intent = new Intent(LoginMedicoActivity.this, MenuMedicoActivity.class);
@@ -73,6 +114,6 @@ public class LoginMedicoActivity extends AppCompatActivity {
             edtChave.setText("");
             edtSenha.setText("");
             return false;
-        }
-    }
+        }*/
+
 }
