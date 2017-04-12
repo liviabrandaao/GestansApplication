@@ -30,6 +30,9 @@ public interface APIServices {
     @POST("autoavaliacoes/listar")
     Call<List<Autoavaliacao>> getAllAutoAvMedico(@Body String chave);
 
+    @POST("/verificaChave")
+    Call<String> chaveExiste(@Body String chave);
+
 
     /*Serviço ainda não implementado */
     @POST("autoavaliacoes/listarIndividual")
