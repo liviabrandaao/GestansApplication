@@ -48,5 +48,37 @@ public class MedicoController {
 		return builder.build();
 	}
 	
+	@PermitAll
+	@POST
+	@Path("/login")
+	@Produces("application/json")
+	@Consumes("application/json")
+	public Response login(Medico loginMedico) {
+
+		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
+		builder.expires(new Date());
+
+		try {
+
+			Medico medico = MedicoDAO.getInstance().findMedicoByChave(loginMedico.getChave());
+
+			
+			if (medico.getChave().equals(loginMedico.getChave())){
+				
+				builder.status(Response.Status.OK).entity(medico);
+			
+				
+				} else {
+					
+					builder.status(Response.Status.BAD_REQUEST).entity(medico);
+				}
+
+		} catch (SQLException exception) {
+			builder.status(Response.Status.INTERNAL_SERVER_ERROR);
+		}
+
+		return builder.build();
+	}
+
 	
 }
