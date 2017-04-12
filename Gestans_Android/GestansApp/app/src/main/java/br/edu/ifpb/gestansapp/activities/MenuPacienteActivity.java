@@ -47,6 +47,7 @@ public class MenuPacienteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MenuPacienteActivity.this,AddAutoAvaliacaoActivity.class);
+                intent.putExtra("cpf", cpfPaciente);
                 startActivity(intent);
             }
         });
