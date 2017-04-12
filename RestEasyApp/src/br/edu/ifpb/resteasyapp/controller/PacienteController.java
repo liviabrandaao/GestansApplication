@@ -26,7 +26,7 @@ public class PacienteController {
 	
 	@PermitAll
 	@POST
-	@Path("paciente/inserir")
+	@Path("paciente/cadastrar")
 	@Consumes("application/json")
 	@Produces("application/json")
 	
