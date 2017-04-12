@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 public class LoginPacienteActivity extends AppCompatActivity {
 
     @BindView(R.id.edtSenhaPacientelogin) EditText edtSenha;
-    @BindView(R.id.edtChavePacientelogin) EditText edtChave;
+    @BindView(R.id.edtCPFPacientelogin) EditText edtCPF;
     @BindView(R.id.btnEntrar) Button btnEntrar;
     @BindView(R.id.btnCadastrarPaciente) Button btnCadastrar;
     @BindView(R.id.btnPacVoltarMenuInicial) Button btnVoltar;
@@ -31,11 +31,10 @@ public class LoginPacienteActivity extends AppCompatActivity {
             public void onClick(View view) {
                 boolean ehValido = validaPaciente();
                 if(ehValido) {
-                    //consultar no bd se a chave dada  do médico existe e retorná-lo, associando a MenuMedico
                     //Intent intent = new Intent(LoginPacienteActivity.this, MenuPacienteActivity.class);
                    // startActivity(intent);
                 } else {
-                    Toast.makeText(getApplicationContext(),"Chave ou senha inválidos!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"CPF ou senha inválidos!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
