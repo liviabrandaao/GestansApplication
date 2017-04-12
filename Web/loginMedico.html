@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html ng-app="Web">
-
+<html>
 <head>
-    <title>Gestans</title>
+    
+    <!-- Materialize -->
+	<!-- Compiled and minified CSS  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0"></script>
+    
     <!-- Angular -->
     <script type="application/javascript" src="js/lib/angular.min.js"></script>
     <script src="js/lib/angular-route.min.js"></script>
@@ -45,44 +51,33 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/estilo.css">
-
+    
 </head>
 
 <body style="background-color: #f9bede" ng-controller="LoginController">
-
-
-    <md-card layout-padding style="padding-left: 6%; padding-right: 6%; padding-bottom: 4%; padding-top: 3%; background-color: white">
-        <div class="col s3">
-            <h1><i>Login</i></h1><br/>
-        </div>
-
-        <div class="row">
-            <div class="col s3"></div>
-            <div class="col s2">
-                <div class="card">
-                    <div class="card-image">
-                        <a href="loginMedico.html"><img src="images/estetoscopio.jpg" class="hoverable"></a><i>Médico</i>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col s1"></div>
-
-            <div class="col s2">
-                <div class="card">
-                    <div class="card-image">
-                        <a href="loginPaciente.html"><img src="images/gestante.jpg" class="hoverable"></a><i>Paciente</i>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3"></div>
-        </div>
-
-
-    </md-card>
-
-
+    
+   <md-card layout-padding style="padding-left: 6%; padding-right: 6%; padding-bottom: 4%; padding-top: 3%; background-color: white">
+       <h2><i>Login - Médico</i></h2><br/>
+       
+       <form>
+			<div class="form-group">
+				<input type="text" name="chave" placeholder="Chave" ng-model="medico.chave"/>
+			</div>
+			<div class="u-form-group">
+				<input id="pass" type="password" placeholder="Senha" ng-model="medico.senha"/>
+			</div><br/>
+			<div class="form-group">
+				<button ui-sref="homeMedico">Entrar</button>
+			</div>
+           <div>
+            Não é cadastrado? <button href="cadastrarMedico.html">Junte-se a nós!</button>
+           </div>
+		</form>
+       
+       
+       
+   </md-card> 
 </body>
-
+    
+    
 </html>

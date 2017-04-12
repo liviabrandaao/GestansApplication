@@ -15,11 +15,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
-import br.edu.ifpb.resteasyapp.dao.MedicoDAO;
-import br.edu.ifpb.resteasyapp.entidade.Medico;
+import br.edu.ifpb.resteasyapp.dao.AutoAvaliacaoDAO;
+import br.edu.ifpb.resteasyapp.entidade.AutoAvaliacao;
 
-@Path("medico")
-public class MedicoController {
+@Path("autoAvaliacao")
+public class AutoAvaliacaoController {
 
 	
 	@PermitAll
@@ -27,18 +27,18 @@ public class MedicoController {
 	@Path("/inserir")
 	@Consumes("application/json")
 	@Produces("application/json")
-	public Response insert(Medico medico) {
+	public Response insert(AutoAvaliacao autoAvaliacao) {
 		
 		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
 		builder.expires(new Date());
 		
 		try {
 			
-			int idMedico = MedicoDAO.getInstance().insert(medico);
+			int idMedico = AutoAvaliacaoDAO.getInstance().insert(autoAvaliacao);
 			
-			medico.setId(idMedico);
+			autoAvaliacao.setId(idMedico);
 			
-			builder.status(Response.Status.OK).entity(medico);
+			builder.status(Response.Status.OK).entity(autoAvaliacao);
 		
 		} catch (SQLException e) {
 			
@@ -48,5 +48,22 @@ public class MedicoController {
 		return builder.build();
 	}
 	
+	@PermitAll
+	@GET
+	@Path("/listar")
+	@Produces("application/json")
+	public List<AutoAvaliacao> getAll() {
+
+		List<AutoAvaliacao> autoAvaliacao = new ArrayList<AutoAvaliacao>();
+
+		try {
+
+			autoAvaliacao = AutoAvaliacaoDAO.getInstance().getAll();
+
+		} catch (SQLException e) {
+
+	}
+		return autoAvaliacao;
 	
+	}
 }
