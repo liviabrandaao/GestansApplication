@@ -27,7 +27,7 @@ public interface APIServices {
     @POST("paciente/login")
     Call<Paciente> loginPaciente(@Body Paciente pacienteRecebida);
 
-    @GET("autoavaliacoes/listar")
-    Call<List<Autoavaliacao>> getAll();
+    @POST("autoavaliacoes/listar")
+    Call<List<Autoavaliacao>> getAllAutoAvMedico(@Body String chave);
 
 }

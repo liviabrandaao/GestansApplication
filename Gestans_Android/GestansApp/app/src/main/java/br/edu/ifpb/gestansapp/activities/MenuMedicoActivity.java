@@ -3,12 +3,20 @@ package br.edu.ifpb.gestansapp.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.List;
 
 import br.edu.ifpb.gestansapp.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import entities.Autoavaliacao;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import service.ServerConnection;
 
 public class MenuMedicoActivity extends AppCompatActivity {
 
@@ -23,7 +31,7 @@ public class MenuMedicoActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Bundle extras = getIntent().getExtras();
-        chaveMedico = extras.getString("Chave");
+        chaveMedico = extras.getString("chave");
 
         btnpesquisarPacientes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +43,9 @@ public class MenuMedicoActivity extends AppCompatActivity {
         btnverAtualizações.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //ver atualizações
+                Intent intent = new Intent(MenuMedicoActivity.this, ListarAAparaMedicoActivity.class);
+                intent.putExtra("chave", chaveMedico);
+                startActivity(intent);
             }
         });
 
@@ -47,4 +57,10 @@ public class MenuMedicoActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+
+
+
 }
