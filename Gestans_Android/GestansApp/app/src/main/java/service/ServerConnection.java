@@ -8,7 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class ServerConnection {
-    private static final String URL_BASE = "";
+    private static final String URL_BASE = 
+        "http://192.168.0.108:8080/RestEasyApp/";
 
 
 
