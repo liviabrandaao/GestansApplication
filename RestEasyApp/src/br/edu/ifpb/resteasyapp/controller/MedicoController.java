@@ -24,7 +24,7 @@ public class MedicoController {
 	
 	@PermitAll
 	@POST
-	@Path("/inserir")
+	@Path("medico/inserir")
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Response insert(Medico medico) {
@@ -50,7 +50,7 @@ public class MedicoController {
 	
 	@PermitAll
 	@POST
-	@Path("/login")
+	@Path("medico/login")
 	@Produces("application/json")
 	@Consumes("application/json")
 	public Response login(Medico loginMedico) {
