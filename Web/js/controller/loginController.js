@@ -1,4 +1,4 @@
-angulaAppModulo.controller('loginController', function (LoginService, $scope, $state) {
+angulaAppModulo.controller('LoginController', function (LoginService, $scope, $state) {
 
     $scope.fazerLogin = function () {
 

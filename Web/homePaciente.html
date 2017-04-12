@@ -48,40 +48,48 @@
 
 </head>
 
-<body style="background-color: #f9bede" ng-controller="LoginController">
+<body layout="column">
 
-
-    <md-card layout-padding style="padding-left: 6%; padding-right: 6%; padding-bottom: 4%; padding-top: 3%; background-color: white">
-        <div class="col s3">
-            <h1><i>Login</i></h1><br/>
+    <!-- Cabeçalho -->
+    <md-toolbar md-colors="::{backgroundColor: 'pink'}">
+        <div>
+            <h1><i>GESTANS</i></h1>
         </div>
+    </md-toolbar>
 
-        <div class="row">
-            <div class="col s3"></div>
-            <div class="col s2">
-                <div class="card">
-                    <div class="card-image">
-                        <a href="loginMedico.html"><img src="images/estetoscopio.jpg" class="hoverable"></a><i>Médico</i>
-                    </div>
+    <!-- Conteúdo -->
+    <div flex layout="row">
 
+        <!-- Menu Lateral -->
+        <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+
+
+            <!-- É necessário criar um controller para gerenciar o Sidnav: MenuController -->
+            <md-content ng-controller="MenuController">
+                <!-- Menu -->
+                <ul class="nav navbar-nav">
+
+                    <!-- Navegações definidas no state.js para o ui-sref. Não usar pontos (.) na definição da navegação, somente são permitidas as barras (/) -->
+
+                    <!-- Adicionar itens do MENU aqui!  -->
+                    <md-button class="md-primary" ui-sref="home" md-colors="::{color: 'pink'}">Início</md-button>
+                    <md-button class="md-primary" ui-sref="paciente/autoavaliacao" md-colors="::{color: 'pink'}">Auto avaliação</md-button>
+                </ul>
+            </md-content>
+
+        </md-sidenav>
+
+        <!-- Conteúdo que muda dependendo da navegação escolhida -->
+        <div layout="column" flex>
+            <div class="box1">
+                <div ui-view>
+                    <!-- Conteúdo da rota atual -->
                 </div>
             </div>
-
-            <div class="col s1"></div>
-
-            <div class="col s2">
-                <div class="card">
-                    <div class="card-image">
-                        <a href="loginPaciente.html"><img src="images/gestante.jpg" class="hoverable"></a><i>Paciente</i>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3"></div>
         </div>
+    </div>
 
-
-    </md-card>
-
+    <!-- Rodapé -->
 
 </body>
 

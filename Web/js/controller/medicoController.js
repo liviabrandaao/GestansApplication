@@ -1,4 +1,4 @@
-angulaAppModulo.controller('medicoController', function (MedicoService, $scope, $state) {
+angulaAppModulo.controller('MedicoController', function (MedicoService, $scope, $state) {
 
     var TAMANHO_MINIMO_PESQUISA = 3;
     

@@ -1,4 +1,4 @@
-<div class="container" ng-controller="medicoController">
+<div class="container" ng-controller="MedicoController">
 
     <div class="row">
         <div class="page-header">
@@ -9,16 +9,17 @@
     <div class="row">
         
         <form name="formPesquisa">
-            <input type="text" ng-model="nome" ng-keyup="pesquisarPacientePorNome(nome)" placeholder="Nome da Paciente">
-            <button class="btn btn-primary" ng-click="limparFormulario()">Limpar
+            <input type="text" ng-model="nome" ng-keyup="pesquisarPacientePorNome(nome)" placeholder="Nome da Paciente"><br/>
+            <button ng-click="limparFormulario()">Limpar
             </button>
         </form>
     </div>
+    <br/>
     
      <div class="row">
 
         <!-- Listar todos as pacientes, não pesquisa pelo nome -->
-        <button class="btn btn-primary" ng-click="listarPacientes()">
+        Deseja listar todas as suas pacientes?  <button ng-click="listarPacientes()">
             Listar todas as Pacientes
         </button>
     </div>
@@ -37,7 +38,7 @@
                 <tr ng-repeat="paciente in pacientes">
                     <td>{{ paciente.nome }}</td>
                     <td>{{ paciente.email }}</td>
-                    <td>{{ paciente.contato }}</td>
+                    <td>{{ paciente.telefone }}</td>
                 </tr>
             </tbody>
         </table>
