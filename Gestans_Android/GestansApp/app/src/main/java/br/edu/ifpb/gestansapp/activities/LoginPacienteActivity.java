@@ -37,7 +37,16 @@ public class LoginPacienteActivity extends AppCompatActivity {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validaPaciente();
+                //validaPaciente();
+                    if (edtCPF.getText().toString().equals("admin") && edtSenha.getText().toString().equals("admin")){
+                        Intent i = new Intent(LoginPacienteActivity.this, MenuPacienteActivity.class);
+                        i.putExtra("cpf", "pacienteteste");
+                        startActivity(i);
+                    } else {
+                        edtCPF.setText("");
+                        edtSenha.setText("");
+                        Toast.makeText(getApplicationContext(),"CPF ou senha inválidos!", Toast.LENGTH_SHORT).show();
+                    }
             }
         });
 

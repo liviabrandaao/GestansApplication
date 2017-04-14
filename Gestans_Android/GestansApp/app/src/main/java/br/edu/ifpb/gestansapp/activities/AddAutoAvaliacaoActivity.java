@@ -2,6 +2,7 @@ package br.edu.ifpb.gestansapp.activities;
 
 import android.content.Intent;
 import android.graphics.RadialGradient;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -58,7 +59,7 @@ public class AddAutoAvaliacaoActivity extends AppCompatActivity {
     @BindView(R.id.rgdesmaios) RadioGroup rgdesmaios;
     @BindView(R.id.edtOutros) EditText edtOutros;
     @BindView(R.id.btnSalvarAutoAv) Button btnSalvar;
-    @BindView(R.id.btnVoltarMenuPac) Button btnVoltar;
+    @BindView(R.id.btnVoltarMenuPac) FloatingActionButton btnVoltar;
 
 
     @Override
@@ -92,6 +93,7 @@ public class AddAutoAvaliacaoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AddAutoAvaliacaoActivity.this, MenuPacienteActivity.class);
+                intent.putExtra("cpf",cpfPaciente);
                 startActivity(intent);
             }
         });

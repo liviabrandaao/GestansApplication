@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/transparent"
-        app:srcCompat="@mipmap/doctoricon"
+        app:srcCompat="@mipmap/medicoicon"
         android:layout_alignBottom="@+id/btngravida"
         android:layout_alignEnd="@+id/textView2" />
 
@@ -42,7 +42,7 @@
         android:layout_width="74dp"
         android:layout_height="70dp"
         android:background="@android:color/transparent"
-        app:srcCompat="@drawable/ic_pregnant_woman_black_24dp"
+        app:srcCompat="@mipmap/gravidaicon"
         android:layout_centerVertical="true"
         android:layout_alignStart="@+id/textView2" />
 

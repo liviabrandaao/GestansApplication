@@ -1,6 +1,7 @@
 package br.edu.ifpb.gestansapp.activities;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +15,7 @@ public class MenuPacienteActivity extends AppCompatActivity {
 
     @BindView(R.id.btnSair) Button btnSair;
     @BindView(R.id.btnVerAutoAv) Button btnVerAutoAv;
-    @BindView(R.id.btnAddAutoAv) Button btnAdd;
+    @BindView(R.id.btnAddAutoAv) FloatingActionButton btnAdd;
     private String cpfPaciente;
 
     @Override

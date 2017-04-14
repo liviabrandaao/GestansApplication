@@ -37,7 +37,16 @@ public class LoginMedicoActivity extends AppCompatActivity {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               validaMedico();
+               //validaMedico();
+                if (edtChave.getText().toString().equals("admin") && edtSenha.getText().toString().equals("admin")){
+                    Intent i = new Intent(LoginMedicoActivity.this, MenuMedicoActivity.class);
+                    i.putExtra("chave", "medicoteste");
+                    startActivity(i);
+                } else {
+                    edtChave.setText("");
+                    edtSenha.setText("");
+                    Toast.makeText(getApplicationContext(),"Chave ou senha inválidos!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
