@@ -18,7 +18,7 @@
         tools:ignore="MissingConstraints"
         app:fabSize="mini"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="18dp"
+        android:layout_marginBottom="5dp"
         />
 
     <ScrollView
@@ -36,9 +36,7 @@
                 android:id="@+id/cadastrarTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginRight="@+id/btnMedVoltarLogin"
                 android:fontFamily="serif"
                 android:text="Cadastre-se"
                 android:textAlignment="center"
@@ -71,6 +69,7 @@
                     android:id="@+id/edtMedEmailCad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
                     android:hint="Email"
                     android:textColorHint="@color/colorPrimary"
                     android:textColorHighlight="@color/colorPrimary"/>
@@ -157,7 +156,7 @@
             <Button
                 android:id="@+id/btnCadastrar"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:text="Cadastrar"

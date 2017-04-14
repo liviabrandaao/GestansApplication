@@ -1,6 +1,7 @@
 package br.edu.ifpb.gestansapp.activities;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,7 +26,7 @@ public class LoginPacienteActivity extends AppCompatActivity {
     @BindView(R.id.edtCPFPacientelogin) EditText edtCPF;
     @BindView(R.id.btnEntrar) Button btnEntrar;
     @BindView(R.id.btnCadastrarPaciente) Button btnCadastrar;
-    @BindView(R.id.btnPacVoltarMenuInicial) Button btnVoltar;
+    @BindView(R.id.btnPacVoltarMenuInicial) FloatingActionButton btnVoltar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

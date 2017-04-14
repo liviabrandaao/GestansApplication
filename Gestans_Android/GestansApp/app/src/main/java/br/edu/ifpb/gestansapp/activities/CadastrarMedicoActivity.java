@@ -1,6 +1,7 @@
 package br.edu.ifpb.gestansapp.activities;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ import service.ServerConnection;
 
 public class CadastrarMedicoActivity extends AppCompatActivity {
 
-    @BindView(R.id.btnMedVoltarLogin) Button btnVoltarLogin;
+    @BindView(R.id.btnMedVoltarLogin) FloatingActionButton btnVoltarLogin;
     @BindView(R.id.edtMedNomeCad) EditText edtNome;
     @BindView(R.id.edtMedEmailCad) EditText edtEmail;
     @BindView(R.id.edtMedCPFCad) EditText edtCPF;

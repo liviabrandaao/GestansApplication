@@ -10,7 +10,7 @@
             android:id="@+id/imageAccount"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginTop="43dp"
+            android:layout_marginTop="5dp"
             app:srcCompat="@drawable/ic_account_circle_black_24dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
