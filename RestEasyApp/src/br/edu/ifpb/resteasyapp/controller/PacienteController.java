@@ -26,7 +26,7 @@ public class PacienteController {
 	
 	@PermitAll
 	@POST
-	@Path("/inserir")
+	@Path("paciente/cadastrar")
 	@Consumes("application/json")
 	@Produces("application/json")
 	
@@ -53,10 +53,10 @@ public class PacienteController {
 	
 	@PermitAll
 	@POST
-	@Path("/login")
+	@Path("paciente/login")
 	@Produces("application/json")
 	@Consumes("application/json")
-	public Response login(Medico loginPaciente) {
+	public Response login(Paciente loginPaciente) {
 
 		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
 		builder.expires(new Date());
