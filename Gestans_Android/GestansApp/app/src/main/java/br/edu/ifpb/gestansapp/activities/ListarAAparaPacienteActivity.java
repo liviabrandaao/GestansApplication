@@ -32,7 +32,7 @@ public class ListarAAparaPacienteActivity extends AppCompatActivity {
         cpfPaciente = extras.getString("cpf");
 
         autoavaliacoes = new ArrayList<Autoavaliacao>();
-        adapter = new ArrayAdapter<Autoavaliacao>(this, android.R.layout.simple_list_item_1, autoavaliacoes);
+        adapter = new ArrayAdapter<Autoavaliacao>(this, android.R.layout.simple_list_item_activated_1, autoavaliacoes);
         lvAA.setAdapter(adapter);
 
         listarAutoAv(cpfPaciente);

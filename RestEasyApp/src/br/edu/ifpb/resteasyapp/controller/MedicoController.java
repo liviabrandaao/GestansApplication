@@ -18,13 +18,13 @@ import javax.ws.rs.core.Response.ResponseBuilder;
 import br.edu.ifpb.resteasyapp.dao.MedicoDAO;
 import br.edu.ifpb.resteasyapp.entidade.Medico;
 
-@Path("medico")
+
 public class MedicoController {
 
 	
 	@PermitAll
 	@POST
-	@Path("/inserir")
+	@Path("medico/cadastrar")
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Response insert(Medico medico) {
@@ -50,7 +50,7 @@ public class MedicoController {
 	
 	@PermitAll
 	@POST
-	@Path("/deletar")
+	@Path("medico/deletar")
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Response delete(Medico medico) {
@@ -89,7 +89,7 @@ public class MedicoController {
 	
 	@PermitAll
 	@POST
-	@Path("/alterar")
+	@Path("medico/alterar")
 	@Produces("application/json")
 	@Consumes("application/json")
 	public Response update(Medico medico) {
@@ -113,7 +113,7 @@ public class MedicoController {
 	
 	@PermitAll
 	@POST
-	@Path("/login")
+	@Path("medico/login")
 	@Produces("application/json")
 	@Consumes("application/json")
 	public Response login(Medico medico) {

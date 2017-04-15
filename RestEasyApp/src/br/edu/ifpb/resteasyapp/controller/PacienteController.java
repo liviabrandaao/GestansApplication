@@ -24,7 +24,7 @@ public class PacienteController {
 	
 	@PermitAll
 	@POST
-	@Path("/inserir")
+	@Path("paciente/cadastrar")
 	@Consumes("application/json")
 	@Produces("application/json")
 	
@@ -51,7 +51,7 @@ public class PacienteController {
 	
 	@PermitAll
 	@POST
-	@Path("/deletar")
+	@Path("paciente/deletar")
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Response delete(Paciente paciente) {
@@ -90,7 +90,7 @@ public class PacienteController {
 	
 	@PermitAll
 	@POST
-	@Path("/alterar")
+	@Path("paciente/alterar")
 	@Produces("application/json")
 	@Consumes("application/json")
 	public Response update(Paciente paciente) {
