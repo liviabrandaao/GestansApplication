@@ -24,7 +24,7 @@ public class MenuMedicoActivity extends AppCompatActivity {
     @BindView(R.id.btnPesquisarPacientes) Button btnpesquisarPacientes;
     @BindView(R.id.btnVerAtualizaçõesRecentes) Button btnverAtualizações;
     @BindView(R.id.btnSair) Button btnsair;
-    @BindView(R.id.imageAccountoptPac) ImageButton btnConta;
+    @BindView(R.id.imageAccountoptMed) ImageButton btnConta;
     private String chaveMedico;
 
     @Override
@@ -63,7 +63,7 @@ public class MenuMedicoActivity extends AppCompatActivity {
         btnConta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MenuMedicoActivity.this, OpcoesContaMedicoActivity.class);
+                Intent intent = new Intent(MenuMedicoActivity.this, OpcoesDaContaMedicoActivity.class);
                 intent.putExtra("chave", chaveMedico);
                 startActivity(intent);
             }

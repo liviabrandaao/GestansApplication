@@ -7,7 +7,7 @@
     tools:context="br.edu.ifpb.gestansapp.activities.MenuMedicoActivity">
 
     <ImageButton
-        android:id="@+id/imageAccountoptPac"
+        android:id="@+id/imageAccountoptMed"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:backgroundTint="@android:color/transparent"

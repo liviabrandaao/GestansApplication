@@ -14,35 +14,36 @@ import br.edu.ifpb.gestansapp.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class OpcoesContaMedicoActivity extends AppCompatActivity {
+public class OpcoesDaContaMedicoActivity extends AppCompatActivity {
 
-    @BindView(R.id.btnMedVoltarMenuMed) FloatingActionButton btnVoltar;
-    @BindView(R.id.btnMedAtualizarConta)
-    Button btnAtualizarConta;
-    @BindView(R.id.btnMedDeletarConta) Button btnDeletarConta;
+    @BindView(R.id.fbtnVoltarMenuMed)
+    FloatingActionButton fbtnVoltar;
+    @BindView(R.id.btnAtualizarInfoContaMed)
+    Button btnAtualizarInfo;
+    @BindView(R.id.btnDeletarContaMed) Button btnDeletarConta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_opcoes_conta_paciente);
+        setContentView(R.layout.activity_opcoes_da_conta_medico);
         ButterKnife.bind(this);
 
         Bundle extras = getIntent().getExtras();
         final String chaveMed = extras.getString("chave");
 
-        btnVoltar.setOnClickListener(new View.OnClickListener() {
+        fbtnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(OpcoesContaMedicoActivity.this, MenuMedicoActivity.class);
+                Intent intent = new Intent(OpcoesDaContaMedicoActivity.this, MenuMedicoActivity.class);
                 intent.putExtra("chave",chaveMed);
                 startActivity(intent);
             }
         });
 
-        btnAtualizarConta.setOnClickListener(new View.OnClickListener() {
+        btnAtualizarInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //update paciente
+                //update info
             }
         });
 
@@ -60,14 +61,14 @@ public class OpcoesContaMedicoActivity extends AppCompatActivity {
         builder.setMessage("Deseja deletar sua conta?")
                 .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Toast.makeText(getApplicationContext(),"CPF ou senha inválidos!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Chave ou senha inválidos!", Toast.LENGTH_SHORT).show(); //teste
                         /*
                         new Thread(new Runnable() {
 
                             @Override
                             public void run() {
 
-                                Call<Void> call = ServerConnection.getInstance().getService().delete(cpfP);
+                                Call<Void> call = ServerConnection.getInstance().getService().delete(chaveM);
 
                                 call.enqueue(new Callback<Void>() {
                                     @Override
@@ -77,7 +78,7 @@ public class OpcoesContaMedicoActivity extends AppCompatActivity {
                                             if (response.isSuccessful()) {
                                                 Toast.makeText(getBaseContext(), "Conta deletada com sucesso!", Toast.LENGTH_LONG).show();
 
-                                                Intent intent = new Intent(OpcoesContaPacienteActivity.this, MainActivity.class);
+                                                Intent intent = new Intent(OpcoesDaContaMedicoActivity.this, MainActivity.class);
                                                 startActivity(intent);
                                                 finish();
                                             } else {

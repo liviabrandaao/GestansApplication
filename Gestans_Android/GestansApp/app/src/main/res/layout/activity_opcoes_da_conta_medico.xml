@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.edu.ifpb.gestansapp.activities.OpcoesContaMedicoActivity">
+    tools:context="br.edu.ifpb.gestansapp.activities.OpcoesDaContaMedicoActivity">
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btnMedVoltarMenuMed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/fbtnVoltarMenuMed"
         android:layout_marginStart="12dp"
         android:clickable="true"
         app:backgroundTint="@color/colorAccent"
@@ -17,31 +17,33 @@
         tools:ignore="MissingConstraints"
         app:fabSize="mini"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="18dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnMedAtualizarConta"
-        android:text="Atualizar informações da conta"
-        android:textColor="@color/cast_expanded_controller_text_color"
-        android:textStyle="bold"
+        android:id="@+id/btnAtualizarInfoContaMed"
         android:theme="@style/MyButton"
-        android:layout_marginTop="165dp"
+        android:text="Atualizar suas informações"
+        android:textStyle="bold"
+        android:textColor="@color/cast_expanded_controller_text_color"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="179dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnMedDeletarConta"
-        android:text="Excluir conta"
-        android:textColor="@color/cast_expanded_controller_text_color"
-        android:textStyle="bold"
+        android:id="@+id/btnDeletarContaMed"
         android:theme="@style/MyButton"
-        android:layout_below="@+id/btnMedAtualizarConta"
+        android:text="Deletar conta"
+        android:textStyle="bold"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:layout_below="@+id/btnAtualizarInfoContaMed"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp" />
+        android:layout_marginTop="63dp" />
+
 
 
 </RelativeLayout>

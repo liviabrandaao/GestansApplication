@@ -26,7 +26,7 @@
         <activity android:name=".activities.ListarAAparaMedicoActivity" />
         <activity android:name=".activities.ListarAAparaPacienteActivity" />
         <activity android:name=".activities.OpcoesContaPacienteActivity" />
-        <activity android:name=".activities.OpcoesContaMedicoActivity"></activity>
+        <activity android:name=".activities.OpcoesDaContaMedicoActivity"></activity>
     </application>
 
 </manifest>
