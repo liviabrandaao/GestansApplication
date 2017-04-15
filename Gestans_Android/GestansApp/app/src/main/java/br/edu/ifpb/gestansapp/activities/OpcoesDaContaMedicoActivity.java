@@ -43,7 +43,9 @@ public class OpcoesDaContaMedicoActivity extends AppCompatActivity {
         btnAtualizarInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //update info
+                Intent intent = new Intent(OpcoesDaContaMedicoActivity.this, UpdateMedicoActivity.class);
+                intent.putExtra("crm",crmMed);
+                startActivity(intent);
             }
         });
 

@@ -1,5 +1,7 @@
 package service;
 
+import android.support.design.widget.BaseTransientBottomBar;
+
 import java.util.List;
 
 import entities.Autoavaliacao;
@@ -43,6 +45,11 @@ public interface APIServices {
     @POST("autoavaliacoes/deletar")
     Call<Void> deleteAutoAv(@Body Autoavaliacao autoavaliacao);
 
+    @POST("medico/get")
+    Call<Medico> getMedico(@Body String crm);
+
+    @POST("medico/alterar")
+    Call<Void> updateMed(@Body String crm, Medico medico);
     /*
     @POST("/verificaChave")
     Call<String> chaveExiste(@Body String chave);
