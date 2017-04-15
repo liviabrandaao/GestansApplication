@@ -15,32 +15,31 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
-import br.edu.ifpb.resteasyapp.dao.AutoAvaliacaoDAO;
 import br.edu.ifpb.resteasyapp.dao.PacienteDAO;
-import br.edu.ifpb.resteasyapp.entidade.AutoAvaliacao;
 import br.edu.ifpb.resteasyapp.entidade.Paciente;
 
-@Path("autoAvaliacao")
-public class AutoAvaliacaoController {
+@Path("paciente")
+public class PacienteController {
 
 	
 	@PermitAll
 	@POST
-	@Path("/inserir")
+	@Path("paciente/cadastrar")
 	@Consumes("application/json")
 	@Produces("application/json")
-	public Response insert(AutoAvaliacao autoAvaliacao) {
+	
+	public Response insert(Paciente paciente) {
 		
 		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
 		builder.expires(new Date());
 		
 		try {
 			
-			int idMedico = AutoAvaliacaoDAO.getInstance().insert(autoAvaliacao);
+			int idPaciente = PacienteDAO.getInstance().insert(paciente);
 			
-			autoAvaliacao.setId(idMedico);
+			paciente.setId(idPaciente);
 			
-			builder.status(Response.Status.OK).entity(autoAvaliacao);
+			builder.status(Response.Status.OK).entity(paciente);
 		
 		} catch (SQLException e) {
 			
@@ -51,43 +50,24 @@ public class AutoAvaliacaoController {
 	}
 	
 	@PermitAll
-	@GET
-	@Path("/listar")
-	@Produces("application/json")
-	public List<AutoAvaliacao> getAll() {
-
-		List<AutoAvaliacao> autoAvaliacao = new ArrayList<AutoAvaliacao>();
-
-		try {
-
-			autoAvaliacao = AutoAvaliacaoDAO.getInstance().getAll();
-
-		} catch (SQLException e) {
-
-	}
-		return autoAvaliacao;
-	
-	}
-	
-	@PermitAll
 	@POST
-	@Path("/deletar")
+	@Path("paciente/deletar")
 	@Consumes("application/json")
 	@Produces("application/json")
-	public Response delete(AutoAvaliacao autoAvaliacao) {
+	public Response delete(Paciente paciente) {
 	
 		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
 		builder.expires(new Date());
 
 		try {
 			
-			if (autoAvaliacao != null) {
+			if (paciente != null) {
 				
-				int cod_u = AutoAvaliacaoDAO.getInstance().findAutoAvaliacaoById(autoAvaliacao.getId()).getId();
-				AutoAvaliacaoDAO.getInstance().delete(cod_u);
-				AutoAvaliacao autoAvaliacaoTeste = AutoAvaliacaoDAO.getInstance().findAutoAvaliacaoById(autoAvaliacao.getId());
+				int cod_u = PacienteDAO.getInstance().findPacienteByCPF(paciente.getCPF()).getId();
+				PacienteDAO.getInstance().delete(cod_u);
+				Paciente pacienteTeste = PacienteDAO.getInstance().findPacienteByCPF(paciente.getCPF());
 
-				if (autoAvaliacaoTeste == null) {
+				if (pacienteTeste == null) {
 
 					
 					builder.status(Response.Status.NO_CONTENT);
@@ -95,7 +75,7 @@ public class AutoAvaliacaoController {
 				} else {
 
 					
-					builder.status(Response.Status.NOT_IMPLEMENTED).entity(autoAvaliacaoTeste);
+					builder.status(Response.Status.NOT_IMPLEMENTED).entity(pacienteTeste);
 				}
 			}
 
@@ -110,20 +90,20 @@ public class AutoAvaliacaoController {
 	
 	@PermitAll
 	@POST
-	@Path("/alterar")
+	@Path("paciente/alterar")
 	@Produces("application/json")
 	@Consumes("application/json")
-	public Response update(AutoAvaliacao autoAvaliacao) {
+	public Response update(Paciente paciente) {
 
 		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
 		builder.expires(new Date());
 
 		try {
 
-			int cod_u = AutoAvaliacaoDAO.getInstance().findAutoAvaliacaoById(autoAvaliacao.getId()).getId();
-			autoAvaliacao.setId(cod_u);
-			AutoAvaliacaoDAO.getInstance().updateByEntity(autoAvaliacao);
-			builder.status(Response.Status.OK).entity(autoAvaliacao);
+			int cod_u = PacienteDAO.getInstance().findPacienteByCPF(paciente.getCPF()).getId();
+			paciente.setId(cod_u);
+			PacienteDAO.getInstance().updateByEntity(paciente);
+			builder.status(Response.Status.OK).entity(paciente);
 
 		} catch (SQLException exception) {
 			builder.status(Response.Status.INTERNAL_SERVER_ERROR);
@@ -131,6 +111,8 @@ public class AutoAvaliacaoController {
 		return builder.build();
 
 	}
+	
+	
 	
 	
 }
