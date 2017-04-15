@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="br.edu.ifpb.gestansapp.activities.OpcoesContaMedicoActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnMedVoltarMenuMed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:clickable="true"
+        app:backgroundTint="@color/colorAccent"
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        tools:ignore="MissingConstraints"
+        app:fabSize="mini"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="18dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnMedAtualizarConta"
+        android:text="Atualizar informações da conta"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:textStyle="bold"
+        android:theme="@style/MyButton"
+        android:layout_marginTop="165dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnMedDeletarConta"
+        android:text="Excluir conta"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:textStyle="bold"
+        android:theme="@style/MyButton"
+        android:layout_below="@+id/btnMedAtualizarConta"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp" />
+
+
+</RelativeLayout>

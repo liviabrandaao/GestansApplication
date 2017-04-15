@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import java.util.List;
 
@@ -23,7 +24,9 @@ public class MenuMedicoActivity extends AppCompatActivity {
     @BindView(R.id.btnPesquisarPacientes) Button btnpesquisarPacientes;
     @BindView(R.id.btnVerAtualizaçõesRecentes) Button btnverAtualizações;
     @BindView(R.id.btnSair) Button btnsair;
+    @BindView(R.id.imageAccountoptPac) ImageButton btnConta;
     private String chaveMedico;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +56,15 @@ public class MenuMedicoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MenuMedicoActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnConta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuMedicoActivity.this, OpcoesContaMedicoActivity.class);
+                intent.putExtra("chave", chaveMedico);
                 startActivity(intent);
             }
         });
