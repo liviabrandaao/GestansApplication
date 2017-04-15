@@ -3,21 +3,13 @@ package br.edu.ifpb.gestansapp.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import java.util.List;
-
 import br.edu.ifpb.gestansapp.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import entities.Autoavaliacao;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import service.ServerConnection;
 
 public class MenuMedicoActivity extends AppCompatActivity {
 
@@ -25,7 +17,7 @@ public class MenuMedicoActivity extends AppCompatActivity {
     @BindView(R.id.btnVerAtualizaçõesRecentes) Button btnverAtualizações;
     @BindView(R.id.btnSair) Button btnsair;
     @BindView(R.id.imageAccountoptMed) ImageButton btnConta;
-    private String chaveMedico;
+    private String crmMedico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +26,7 @@ public class MenuMedicoActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Bundle extras = getIntent().getExtras();
-        chaveMedico = extras.getString("chave");
+        crmMedico = extras.getString("crm");
 
         btnpesquisarPacientes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +39,7 @@ public class MenuMedicoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MenuMedicoActivity.this, ListarAAparaMedicoActivity.class);
-                intent.putExtra("chave", chaveMedico);
+                intent.putExtra("crm", crmMedico);
                 startActivity(intent);
             }
         });
@@ -64,7 +56,7 @@ public class MenuMedicoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MenuMedicoActivity.this, OpcoesDaContaMedicoActivity.class);
-                intent.putExtra("chave", chaveMedico);
+                intent.putExtra("crm", crmMedico);
                 startActivity(intent);
             }
         });

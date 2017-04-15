@@ -1,6 +1,7 @@
 package br.edu.ifpb.gestansapp.activities;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -93,9 +94,9 @@ public class LoginMedicoActivity extends AppCompatActivity {
                             if (response.isSuccessful()) {
 
                                 Medico medico = response.body();
-                                String chaveMed = medico.getChave();
+                                String crmMed = medico.getCRM();
                                 Intent intent = new Intent(LoginMedicoActivity.this, MenuMedicoActivity.class);
-                                intent.putExtra("chave", chaveMed);
+                                intent.putExtra("crm", crmMed);
                                 startActivity(intent);
 
                             } else {

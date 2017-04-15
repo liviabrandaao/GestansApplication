@@ -29,13 +29,13 @@ public class OpcoesDaContaMedicoActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Bundle extras = getIntent().getExtras();
-        final String chaveMed = extras.getString("chave");
+        final String crmMed = extras.getString("crm");
 
         fbtnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(OpcoesDaContaMedicoActivity.this, MenuMedicoActivity.class);
-                intent.putExtra("chave",chaveMed);
+                intent.putExtra("crm",crmMed);
                 startActivity(intent);
             }
         });
@@ -50,25 +50,25 @@ public class OpcoesDaContaMedicoActivity extends AppCompatActivity {
         btnDeletarConta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                deletarMedico(chaveMed);
+                deletarMedico(crmMed);
             }
         });
     }
 
-    public void deletarMedico(String chave){
-        final String chaveM = chave;
+    public void deletarMedico(String crm){
+        final String crmM = crm;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Deseja deletar sua conta?")
                 .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Toast.makeText(getApplicationContext(),"Chave ou senha inválidos!", Toast.LENGTH_SHORT).show(); //teste
+                        Toast.makeText(getApplicationContext(),"Crm ou senha inválidos!", Toast.LENGTH_SHORT).show(); //teste
                         /*
                         new Thread(new Runnable() {
 
                             @Override
                             public void run() {
 
-                                Call<Void> call = ServerConnection.getInstance().getService().delete(chaveM);
+                                Call<Void> call = ServerConnection.getInstance().getService().delete(crmM);
 
                                 call.enqueue(new Callback<Void>() {
                                     @Override

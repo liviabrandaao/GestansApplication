@@ -194,6 +194,7 @@ public class AddAutoAvaliacaoActivity extends AppCompatActivity {
         final Autoavaliacao autoavaliacao = new Autoavaliacao(nivelDor,febre,localDor,sangramento,faltaDeAr,cansaco,tosse,
                 dordegarganta,doresdecabeca,dormenciab,dormenciap,tonturas,desmaios,outrosS,cpf);
 
+        final String cpfP = cpf;
         new Thread(new Runnable() {
 
             @Override
@@ -213,7 +214,7 @@ public class AddAutoAvaliacaoActivity extends AppCompatActivity {
                                         ,Toast.LENGTH_SHORT).show();
 
                                 Intent intent = new Intent(AddAutoAvaliacaoActivity.this, MenuPacienteActivity.class);
-                                //intent.putExtra("cpf", cpfPaciente);
+                                intent.putExtra("cpf", cpfP);
                                 startActivity(intent);
 
                             } else {

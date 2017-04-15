@@ -19,7 +19,7 @@ import service.ServerConnection;
 
 public class ListarAAparaMedicoActivity extends AppCompatActivity {
 
-    private String chaveMedico;
+    private String crmMedico;
     @BindView(R.id.lvAAMedico) ListView lvAA;
     ArrayAdapter<Autoavaliacao> adapter;
     List<Autoavaliacao> autoavaliacoes;
@@ -30,22 +30,22 @@ public class ListarAAparaMedicoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_listar_aapara_medico);
 
         Bundle extras = getIntent().getExtras();
-        chaveMedico = extras.getString("chave");
+        crmMedico = extras.getString("crm");
 
         autoavaliacoes = new ArrayList<Autoavaliacao>();
         adapter = new ArrayAdapter<Autoavaliacao>(this, android.R.layout.simple_list_item_1, autoavaliacoes);
         lvAA.setAdapter(adapter);
 
-        listarAutoAv(chaveMedico);
+        listarAutoAv(crmMedico);
     }
 
-    public void listarAutoAv(final String chave){
+    public void listarAutoAv(final String crm){
 
         new Thread(new Runnable() {
             @Override
             public void run() {
 
-                Call<List<Autoavaliacao>> call = ServerConnection.getInstance().getService().getAllAutoAvMedico(chave);
+                Call<List<Autoavaliacao>> call = ServerConnection.getInstance().getService().getAllAutoAvMedico(crm);
 
                 Log.i(this.getClass().getName(), "Calling list");
 
