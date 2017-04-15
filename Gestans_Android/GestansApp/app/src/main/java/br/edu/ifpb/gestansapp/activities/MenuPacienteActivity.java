@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import br.edu.ifpb.gestansapp.R;
 import butterknife.BindView;
@@ -16,6 +17,7 @@ public class MenuPacienteActivity extends AppCompatActivity {
     @BindView(R.id.btnSair) Button btnSair;
     @BindView(R.id.btnVerAutoAv) Button btnVerAutoAv;
     @BindView(R.id.btnAddAutoAv) FloatingActionButton btnAdd;
+    @BindView(R.id.imageAccountoptMed) ImageButton btnConta;
     private String cpfPaciente;
 
     @Override
@@ -48,6 +50,15 @@ public class MenuPacienteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MenuPacienteActivity.this,AddAutoAvaliacaoActivity.class);
+                intent.putExtra("cpf", cpfPaciente);
+                startActivity(intent);
+            }
+        });
+
+        btnConta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuPacienteActivity.this, OpcoesContaPacienteActivity.class);
                 intent.putExtra("cpf", cpfPaciente);
                 startActivity(intent);
             }
