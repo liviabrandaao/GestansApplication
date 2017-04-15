@@ -58,7 +58,7 @@ public class MenuPacienteActivity extends AppCompatActivity {
         btnConta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MenuPacienteActivity.this, OpcoesContaPacienteActivity.class);
+                Intent intent = new Intent(MenuPacienteActivity.this, OpcoesDaContaPacienteActivity.class);
                 intent.putExtra("cpf", cpfPaciente);
                 startActivity(intent);
             }

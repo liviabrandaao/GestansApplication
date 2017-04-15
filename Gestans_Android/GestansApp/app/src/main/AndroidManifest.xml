@@ -25,8 +25,8 @@
         <activity android:name=".activities.AddAutoAvaliacaoActivity" />
         <activity android:name=".activities.ListarAAparaMedicoActivity" />
         <activity android:name=".activities.ListarAAparaPacienteActivity" />
-        <activity android:name=".activities.OpcoesContaPacienteActivity" />
-        <activity android:name=".activities.OpcoesDaContaMedicoActivity"></activity>
+        <activity android:name=".activities.OpcoesDaContaMedicoActivity" />
+        <activity android:name=".activities.OpcoesDaContaPacienteActivity"></activity>
     </application>
 
 </manifest>

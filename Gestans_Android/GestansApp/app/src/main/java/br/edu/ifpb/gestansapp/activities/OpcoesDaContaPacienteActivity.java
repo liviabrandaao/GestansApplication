@@ -6,49 +6,44 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import br.edu.ifpb.gestansapp.R;
-import butterknife.BindDimen;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import entities.Paciente;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import service.ServerConnection;
 
-public class OpcoesContaPacienteActivity extends AppCompatActivity {
+public class OpcoesDaContaPacienteActivity extends AppCompatActivity {
 
-    @BindView(R.id.btnPacVoltarMenu) FloatingActionButton btnVoltar;
-    @BindView(R.id.btnPacAtualizarConta) Button btnAtualizarConta;
-    @BindView(R.id.btnPacDeletarConta) Button btnDeletarConta;
+    @BindView(R.id.fbtnVoltarMenuPac)
+    FloatingActionButton fbtnVoltar;
+    @BindView(R.id.btnAtualizarInfoContaPac)
+    Button btnAtualizarInfoConta;
+    @BindView(R.id.btnMedDeletarConta)Button btnDeletarConta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_opcoes_conta_paciente);
+        setContentView(R.layout.activity_opcoes_da_conta_paciente);
         ButterKnife.bind(this);
 
         Bundle extras = getIntent().getExtras();
         final String cpfPaciente = extras.getString("cpf");
 
-        btnVoltar.setOnClickListener(new View.OnClickListener() {
+        fbtnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(OpcoesContaPacienteActivity.this, MenuPacienteActivity.class);
-                intent.putExtra("cpf",cpfPaciente);
+                Intent intent = new Intent(OpcoesDaContaPacienteActivity.this, MenuPacienteActivity.class);
+                intent.putExtra("cpf", cpfPaciente);
                 startActivity(intent);
             }
         });
 
-        btnAtualizarConta.setOnClickListener(new View.OnClickListener() {
+        btnAtualizarInfoConta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //update paciente
+                //update conta
             }
         });
 

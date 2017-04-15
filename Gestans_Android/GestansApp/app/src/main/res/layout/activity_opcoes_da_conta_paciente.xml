@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.edu.ifpb.gestansapp.activities.OpcoesContaPacienteActivity">
+    tools:context="br.edu.ifpb.gestansapp.activities.OpcoesDaContaPacienteActivity">
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btnPacVoltarMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/fbtnVoltarMenuPac"
         android:layout_marginStart="12dp"
         android:clickable="true"
         app:backgroundTint="@color/colorAccent"
@@ -17,32 +17,31 @@
         tools:ignore="MissingConstraints"
         app:fabSize="mini"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="18dp" />
+        android:layout_marginBottom="18dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnPacAtualizarConta"
-        android:text="Atualizar informações da conta"
-        android:textColor="@color/cast_expanded_controller_text_color"
-        android:textStyle="bold"
+        android:id="@+id/btnAtualizarInfoContaPac"
         android:theme="@style/MyButton"
-        android:layout_marginTop="165dp"
+        android:textStyle="bold"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:text="Atualizar informações da conta"
+        android:layout_marginTop="192dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnPacDeletarConta"
-        android:text="Excluir conta"
-        android:textColor="@color/cast_expanded_controller_text_color"
-        android:textStyle="bold"
+        android:id="@+id/btnMedDeletarConta"
         android:theme="@style/MyButton"
-        android:layout_below="@+id/btnPacAtualizarConta"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp" />
-
-
+        android:textStyle="bold"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:text="Deletar conta"
+        android:layout_below="@+id/btnAtualizarInfoContaPac"
+        android:layout_alignStart="@+id/btnAtualizarInfoContaPac"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="52dp" />
 
 </RelativeLayout>
