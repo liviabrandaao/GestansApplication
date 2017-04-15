@@ -40,6 +40,9 @@ public interface APIServices {
     @POST("autoavaliacoes/listar")
     Call<List<Autoavaliacao>> getAllAutoAvMedico(@Body String crm);
 
+    @POST("autoavaliacoes/deletar")
+    Call<Void> deleteAutoAv(@Body Autoavaliacao autoavaliacao);
+
     /*
     @POST("/verificaChave")
     Call<String> chaveExiste(@Body String chave);
