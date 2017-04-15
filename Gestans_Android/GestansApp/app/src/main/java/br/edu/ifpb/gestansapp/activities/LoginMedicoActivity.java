@@ -41,7 +41,7 @@ public class LoginMedicoActivity extends AppCompatActivity {
                //validaMedico();
                 if (edtChave.getText().toString().equals("admin") && edtSenha.getText().toString().equals("admin")){
                     Intent i = new Intent(LoginMedicoActivity.this, MenuMedicoActivity.class);
-                    i.putExtra("chave", "medicoteste");
+                    i.putExtra("crm", "medicoteste");
                     startActivity(i);
                 } else {
                     edtChave.setText("");
