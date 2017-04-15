@@ -24,6 +24,9 @@ public interface APIServices {
     @POST("paciente/deletar")
     Call<Void> delete(@Body String cpf);
 
+    @POST("medico/deletar")
+    Call<Void> deleteMed(@Body String crm);
+
     @POST("paciente/adicionarautoavaliacao")
     Call<Autoavaliacao> insert(@Body Autoavaliacao autoavaliacao);
 
@@ -35,7 +38,7 @@ public interface APIServices {
 
     //Lista as autoavaliacoes de pacientes associados a um medico específico
     @POST("autoavaliacoes/listar")
-    Call<List<Autoavaliacao>> getAllAutoAvMedico(@Body String chave);
+    Call<List<Autoavaliacao>> getAllAutoAvMedico(@Body String crm);
 
     /*
     @POST("/verificaChave")

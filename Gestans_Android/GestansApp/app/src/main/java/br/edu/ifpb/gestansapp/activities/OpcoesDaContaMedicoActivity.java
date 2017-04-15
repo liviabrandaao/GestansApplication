@@ -68,7 +68,7 @@ public class OpcoesDaContaMedicoActivity extends AppCompatActivity {
                             @Override
                             public void run() {
 
-                                Call<Void> call = ServerConnection.getInstance().getService().delete(crmM);
+                                Call<Void> call = ServerConnection.getInstance().getService().deleteMed(crmM);
 
                                 call.enqueue(new Callback<Void>() {
                                     @Override
