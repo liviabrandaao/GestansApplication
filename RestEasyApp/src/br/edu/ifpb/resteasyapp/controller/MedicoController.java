@@ -50,28 +50,98 @@ public class MedicoController {
 	
 	@PermitAll
 	@POST
-	@Path("/login")
+	@Path("/deletar")
+	@Consumes("application/json")
+	@Produces("application/json")
+	public Response delete(Medico medico) {
+	
+		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
+		builder.expires(new Date());
+
+		try {
+			
+			if (medico != null) {
+				
+				int cod_u = MedicoDAO.getInstance().findMedicoByChave(medico.getChave()).getId();
+				MedicoDAO.getInstance().delete(cod_u);
+				Medico medicoTeste = MedicoDAO.getInstance().findMedicoByChave(medico.getChave());
+
+				if (medicoTeste == null) {
+
+					
+					builder.status(Response.Status.NO_CONTENT);
+
+				} else {
+
+					
+					builder.status(Response.Status.NOT_IMPLEMENTED).entity(medicoTeste);
+				}
+			}
+
+		} catch (SQLException exception) {
+
+			builder.status(Response.Status.INTERNAL_SERVER_ERROR);
+		}
+
+		// Resposta
+		return builder.build();
+	}
+	
+	@PermitAll
+	@POST
+	@Path("/alterar")
 	@Produces("application/json")
 	@Consumes("application/json")
-	public Response login(Medico loginMedico) {
+	public Response update(Medico medico) {
 
 		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
 		builder.expires(new Date());
 
 		try {
 
-			Medico medico = MedicoDAO.getInstance().findMedicoByChave(loginMedico.getChave());
+			int cod_u = MedicoDAO.getInstance().findMedicoByChave(medico.getChave()).getId();
+			medico.setId(cod_u);
+			MedicoDAO.getInstance().updateByEntity(medico);
+			builder.status(Response.Status.OK).entity(medico);
+
+		} catch (SQLException exception) {
+			builder.status(Response.Status.INTERNAL_SERVER_ERROR);
+		}
+		return builder.build();
+
+	}
+	
+	@PermitAll
+	@POST
+	@Path("/login")
+	@Produces("application/json")
+	@Consumes("application/json")
+	public Response login(Medico medico) {
+
+		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
+		builder.expires(new Date());
+
+		try {
+
+			Medico medicoRecebido = MedicoDAO.getInstance().findMedicoByChave(medico.getChave());
+			
 
 			
-			if (medico.getChave().equals(loginMedico.getChave())){
+			if (medicoRecebido.getSenha().equals(medico.getSenha())){
 				
-				builder.status(Response.Status.OK).entity(medico);
+				builder.status(Response.Status.OK).entity(medicoRecebido);
 			
+			} else {
+				
+				if (medicoRecebido.getSenha() == null || medicoRecebido.getSenha().isEmpty()){
+				
+					builder.status(Response.Status.EXPECTATION_FAILED).entity(medicoRecebido);
 				
 				} else {
 					
-					builder.status(Response.Status.BAD_REQUEST).entity(medico);
+					builder.status(Response.Status.BAD_REQUEST).entity(medicoRecebido);
 				}
+			}
 
 		} catch (SQLException exception) {
 			builder.status(Response.Status.INTERNAL_SERVER_ERROR);
@@ -79,6 +149,6 @@ public class MedicoController {
 
 		return builder.build();
 	}
-
+	
 	
 }

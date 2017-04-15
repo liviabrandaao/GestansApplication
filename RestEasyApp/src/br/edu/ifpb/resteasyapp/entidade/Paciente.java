@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -35,12 +36,15 @@ import br.edu.ifpb.resteasyapp.dao.PacienteDAO;
 @NamedQuery(name = "Paciente.getAll", query = "from Paciente")
 public class Paciente {
 
-	// Identificador auto-incrementável.
+
 	
+	@Id
+	@Column(name = "cpf_paciente" , unique = true, nullable = false)
+	private Integer cpf;
 	
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@PrimaryKeyJoinColumn(name = "fk_chave_medico") // 
-	private Medico chave;
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
+	@JoinColumn(name = "chave_medico")
+	private Medico medico;
 		
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_paciente")
@@ -55,10 +59,6 @@ public class Paciente {
 	@Column(name = "email_paciente")
 	private String email;
 	
-	@Id
-	@Column(name = "cpf_paciente" , nullable = false)
-	private Integer cpf;
-	
 	@Column(name = "telefone_paciente" , nullable = false)
 	private Integer telefone;
 	
@@ -70,12 +70,20 @@ public class Paciente {
 	
 	
 	@XmlElement
+	public int getCPF() {
+		return cpf;
+	}
+
+	public void setCPF(int cpf) {
+		this.cpf = cpf;
+	}	
+	
 	public Medico getChave() {
-		return chave;
+		return medico;
 	}
 	
 	public void setChave(Medico chave) {
-		this.chave = chave;
+		this.medico = medico;
 	}
 	
 	public Integer getId() {
@@ -111,13 +119,6 @@ public class Paciente {
 		this.email = email;
 	}
 
-	public int getCPF() {
-		return cpf;
-	}
-
-	public void setCPF(int cpf) {
-		this.cpf = cpf;
-	}	
 	
 	
 	public int getTelefone() {

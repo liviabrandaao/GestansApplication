@@ -101,14 +101,14 @@ public abstract class GenericDao<PK, T> {
 		return entity;
 	}
 
-	public void delete(T entity) throws SQLException {
+	public void delete(int cod_u) throws SQLException {
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
 
 		try {
 			
 			session.beginTransaction();
-			session.delete(entity);
+			session.delete(cod_u);
 			session.getTransaction().commit();
 
 		} catch (HibernateException hibernateException) {

@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -31,12 +32,11 @@ public class AutoAvaliacao {
 	@Column(name = "id_autoAvaliacao")
 	private Integer id;
 	
-	@Column(name = "data_avaliacao")
-	private Date DataAvaliacao;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Paciente paciente;
 	
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@PrimaryKeyJoinColumn(name = "fk_cpf_paciente") // 
-	private Paciente cpf;
+	@Column(name = "data_avaliacao")
+	private Date dataAvaliacao;
 	
 	@Column(name = "dor_muscular")
 	private String dorMuscular;
@@ -85,10 +85,25 @@ public class AutoAvaliacao {
 	public Integer getId() {
 		return id;
 	}
-
-
+	
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
+	
+	public Date getDataAvaliacao() {
+		return dataAvaliacao;
+	}
+	
+	public void setDataAvaliacao(Date dataAvaliacao) {
+		this.dataAvaliacao = dataAvaliacao;
 	}
 
 	
@@ -121,7 +136,7 @@ public class AutoAvaliacao {
 	}
 
 	
-	public boolean isSangramento() {
+	public boolean getSangramento() {
 		return sangramento;
 	}
 
@@ -131,7 +146,7 @@ public class AutoAvaliacao {
 	}
 
 	
-	public boolean isFaltaDeAr() {
+	public boolean GetFaltaDeAr() {
 		return faltaDeAr;
 	}
 
@@ -141,7 +156,7 @@ public class AutoAvaliacao {
 	}
 
 	
-	public boolean isCansaco() {
+	public boolean GetCansaco() {
 		return cansaco;
 	}
 
@@ -151,7 +166,7 @@ public class AutoAvaliacao {
 	}
 
 	
-	public boolean isTosse() {
+	public boolean GetTosse() {
 		return tosse;
 	}
 
@@ -161,7 +176,7 @@ public class AutoAvaliacao {
 	}
 
 	
-	public boolean isDorDeGarganta() {
+	public boolean GetDorDeGarganta() {
 		return dorDeGarganta;
 	}
 
@@ -171,7 +186,7 @@ public class AutoAvaliacao {
 	}
 
 	
-	public boolean isDorDeCabeca() {
+	public boolean GetDorDeCabeca() {
 		return dorDeCabeca;
 	}
 
@@ -181,7 +196,7 @@ public class AutoAvaliacao {
 	}
 
 	
-	public boolean isDormenciaNosBracos() {
+	public boolean GetDormenciaNosBracos() {
 		return dormenciaNosBracos;
 	}
 
@@ -191,7 +206,7 @@ public class AutoAvaliacao {
 	}
 
 	
-	public boolean isDormenciaNosPernas() {
+	public boolean GetDormenciaNosPernas() {
 		return dormenciaNosPernas;
 	}
 
@@ -201,7 +216,7 @@ public class AutoAvaliacao {
 	}
 
 	
-	public boolean isTontura() {
+	public boolean GetTontura() {
 		return tontura;
 	}
 
@@ -211,7 +226,7 @@ public class AutoAvaliacao {
 	}
 
 	
-	public boolean isDesmaio() {
+	public boolean GetDesmaio() {
 		return desmaio;
 	}
 

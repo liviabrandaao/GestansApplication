@@ -15,9 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
-import br.edu.ifpb.resteasyapp.dao.MedicoDAO;
 import br.edu.ifpb.resteasyapp.dao.PacienteDAO;
-import br.edu.ifpb.resteasyapp.entidade.Medico;
 import br.edu.ifpb.resteasyapp.entidade.Paciente;
 
 @Path("paciente")
@@ -53,36 +51,68 @@ public class PacienteController {
 	
 	@PermitAll
 	@POST
-	@Path("/login")
+	@Path("/deletar")
+	@Consumes("application/json")
+	@Produces("application/json")
+	public Response delete(Paciente paciente) {
+	
+		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
+		builder.expires(new Date());
+
+		try {
+			
+			if (paciente != null) {
+				
+				int cod_u = PacienteDAO.getInstance().findPacienteByCPF(paciente.getCPF()).getId();
+				PacienteDAO.getInstance().delete(cod_u);
+				Paciente pacienteTeste = PacienteDAO.getInstance().findPacienteByCPF(paciente.getCPF());
+
+				if (pacienteTeste == null) {
+
+					
+					builder.status(Response.Status.NO_CONTENT);
+
+				} else {
+
+					
+					builder.status(Response.Status.NOT_IMPLEMENTED).entity(pacienteTeste);
+				}
+			}
+
+		} catch (SQLException exception) {
+
+			builder.status(Response.Status.INTERNAL_SERVER_ERROR);
+		}
+
+		// Resposta
+		return builder.build();
+	}
+	
+	@PermitAll
+	@POST
+	@Path("/alterar")
 	@Produces("application/json")
 	@Consumes("application/json")
-	public Response login(Medico loginPaciente) {
+	public Response update(Paciente paciente) {
 
 		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
 		builder.expires(new Date());
 
 		try {
 
-			Paciente paciente = PacienteDAO.getInstance().findPacienteByCPF(loginPaciente.getChave());
-
-			
-			if (paciente.getChave().equals(loginPaciente.getChave())){
-				
-				builder.status(Response.Status.OK).entity(paciente);
-			
-				
-				} else {
-					
-					builder.status(Response.Status.BAD_REQUEST).entity(paciente);
-				}
+			int cod_u = PacienteDAO.getInstance().findPacienteByCPF(paciente.getCPF()).getId();
+			paciente.setId(cod_u);
+			PacienteDAO.getInstance().updateByEntity(paciente);
+			builder.status(Response.Status.OK).entity(paciente);
 
 		} catch (SQLException exception) {
 			builder.status(Response.Status.INTERNAL_SERVER_ERROR);
 		}
-
 		return builder.build();
-	}
 
+	}
+	
+	
 	
 	
 }

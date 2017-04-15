@@ -2,14 +2,12 @@ package br.edu.ifpb.resteasyapp.dao;
 
 import java.sql.SQLException;
 import java.util.List;
-
-import javax.management.Query;
-
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.HibernateException;
 
-import com.mysql.cj.api.Session;
-
 import br.edu.ifpb.resteasyapp.entidade.Medico;
+
 import br.edu.ifpb.resteasyapp.hibernate.HibernateUtil;
 
 public class MedicoDAO extends GenericDao<Integer, Medico>{
@@ -39,27 +37,42 @@ private static MedicoDAO instance;
 	
 public Medico findMedicoByChave(String chave) throws SQLException{
 		
-		org.hibernate.Session session = HibernateUtil.getSessionFactory().openSession();
+	Session session = HibernateUtil.getSessionFactory().openSession();
+	
+	Medico medico = null;
+	
+	try{
+
+		String hql = "from Medico p "
+			+ "where p.chave like :chave";
 		
-		Medico medico = null;
+		Query query = session.createQuery(hql);
 		
-		try{
+		query.setParameter("chave", "%" + chave + "%");
 		
-			String hql = "from Medico x "	+ "where x.chave = Medico.getChave ";
-			
-			Query query = (Query) session.createQuery(hql);
-				
-			medico = (Medico) ((org.hibernate.Query) query).uniqueResult();
-			
-		} catch(HibernateException hibernateException){
-			
-			session.getTransaction().rollback();
-			
-			throw new SQLException(hibernateException);
+		medico = (Medico) query.uniqueResult();
 		
-		} finally {
-			session.close();
-		}
-		return medico;
+	} catch(HibernateException hibernateException){
+		
+		session.getTransaction().rollback();
+		
+		throw new SQLException(hibernateException);
+	
+	} finally {
+		session.close();
 	}
+	return medico;
 }
+
+public void updateByEntity(Medico medico) {
+	// TODO Auto-generated method stub
+	
+}
+
+
+
+
+
+	
+}
+

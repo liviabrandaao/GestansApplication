@@ -16,7 +16,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
 import br.edu.ifpb.resteasyapp.dao.AutoAvaliacaoDAO;
+import br.edu.ifpb.resteasyapp.dao.PacienteDAO;
 import br.edu.ifpb.resteasyapp.entidade.AutoAvaliacao;
+import br.edu.ifpb.resteasyapp.entidade.Paciente;
 
 @Path("autoAvaliacao")
 public class AutoAvaliacaoController {
@@ -66,4 +68,69 @@ public class AutoAvaliacaoController {
 		return autoAvaliacao;
 	
 	}
+	
+	@PermitAll
+	@POST
+	@Path("/deletar")
+	@Consumes("application/json")
+	@Produces("application/json")
+	public Response delete(AutoAvaliacao autoAvaliacao) {
+	
+		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
+		builder.expires(new Date());
+
+		try {
+			
+			if (autoAvaliacao != null) {
+				
+				int cod_u = AutoAvaliacaoDAO.getInstance().findAutoAvaliacaoById(autoAvaliacao.getId()).getId();
+				AutoAvaliacaoDAO.getInstance().delete(cod_u);
+				AutoAvaliacao autoAvaliacaoTeste = AutoAvaliacaoDAO.getInstance().findAutoAvaliacaoById(autoAvaliacao.getId());
+
+				if (autoAvaliacaoTeste == null) {
+
+					
+					builder.status(Response.Status.NO_CONTENT);
+
+				} else {
+
+					
+					builder.status(Response.Status.NOT_IMPLEMENTED).entity(autoAvaliacaoTeste);
+				}
+			}
+
+		} catch (SQLException exception) {
+
+			builder.status(Response.Status.INTERNAL_SERVER_ERROR);
+		}
+
+		// Resposta
+		return builder.build();
+	}
+	
+	@PermitAll
+	@POST
+	@Path("/alterar")
+	@Produces("application/json")
+	@Consumes("application/json")
+	public Response update(AutoAvaliacao autoAvaliacao) {
+
+		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
+		builder.expires(new Date());
+
+		try {
+
+			int cod_u = AutoAvaliacaoDAO.getInstance().findAutoAvaliacaoById(autoAvaliacao.getId()).getId();
+			autoAvaliacao.setId(cod_u);
+			AutoAvaliacaoDAO.getInstance().updateByEntity(autoAvaliacao);
+			builder.status(Response.Status.OK).entity(autoAvaliacao);
+
+		} catch (SQLException exception) {
+			builder.status(Response.Status.INTERNAL_SERVER_ERROR);
+		}
+		return builder.build();
+
+	}
+	
+	
 }

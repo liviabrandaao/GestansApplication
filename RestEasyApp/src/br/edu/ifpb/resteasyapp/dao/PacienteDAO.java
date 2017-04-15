@@ -3,11 +3,10 @@ package br.edu.ifpb.resteasyapp.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.management.Query;
-
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.HibernateException;
-
-import br.edu.ifpb.resteasyapp.entidade.Medico;
+import org.hibernate.HibernateException;
 import br.edu.ifpb.resteasyapp.entidade.Paciente;
 import br.edu.ifpb.resteasyapp.hibernate.HibernateUtil;
 
@@ -36,30 +35,38 @@ private static PacienteDAO instance;
 		return null;
 	}
 	
-public Paciente findPacienteByCPF(String cpf) throws SQLException{
+public Paciente findPacienteByCPF(int cpf) throws SQLException{
 		
-		org.hibernate.Session session = HibernateUtil.getSessionFactory().openSession();
+Session session = HibernateUtil.getSessionFactory().openSession();
+	
+	Paciente paciente = null;
+	
+	try{
+
+		String hql = "from Paciente p "
+			+ "where p.cpf like :cpf";
 		
-		Paciente paciente = null;
+		Query query = session.createQuery(hql);
 		
-		try{
+		query.setParameter("cpf", "%" + cpf + "%");
 		
-			String hql = "from Paciente x "	+ "where x.cpf = Paciente.getCPF ";
-			
-			Query query = (Query) session.createQuery(hql);
-				
-			paciente = (Paciente) ((org.hibernate.Query) query).uniqueResult();
-			
-		} catch(HibernateException hibernateException){
-			
-			session.getTransaction().rollback();
-			
-			throw new SQLException(hibernateException);
+		paciente = (Paciente) query.uniqueResult();
 		
-		} finally {
-			session.close();
-		}
-		return paciente;
+	} catch(HibernateException hibernateException){
+		
+		session.getTransaction().rollback();
+		
+		throw new SQLException(hibernateException);
+	
+	} finally {
+		session.close();
 	}
+	return paciente;
+}
+
+public void updateByEntity(Paciente paciente) {
+	// TODO Auto-generated method stub
+	
+}
 }
 
