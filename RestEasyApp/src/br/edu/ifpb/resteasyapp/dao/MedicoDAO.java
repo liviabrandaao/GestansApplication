@@ -35,7 +35,7 @@ private static MedicoDAO instance;
 		return null;
 	}
 	
-public Medico findMedicoByChave(String chave) throws SQLException{
+public Medico findMedicoByCRM(int crm) throws SQLException{
 		
 	Session session = HibernateUtil.getSessionFactory().openSession();
 	
@@ -44,11 +44,11 @@ public Medico findMedicoByChave(String chave) throws SQLException{
 	try{
 
 		String hql = "from Medico p "
-			+ "where p.chave like :chave";
+			+ "where p.crm like :crm";
 		
 		Query query = session.createQuery(hql);
 		
-		query.setParameter("chave", "%" + chave + "%");
+		query.setParameter("crm", "%" + crm + "%");
 		
 		medico = (Medico) query.uniqueResult();
 		

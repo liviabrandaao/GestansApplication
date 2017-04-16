@@ -23,7 +23,6 @@ public class Medico {
 	@Column(name = "chave_medico", unique = true , nullable = false)
 	private String chave;
 	
-	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_medico")
 	private Integer id;
@@ -44,7 +43,7 @@ public class Medico {
 	private Integer crm;
 	
 	@Column(name = "telefone_medico" , nullable = false)
-	private Integer telefone;
+	private String telefone;
 	
 	@XmlElement
 	public String getChave() {
@@ -105,11 +104,11 @@ public class Medico {
 		this.crm = crm;
 	}	
 	
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}	
 	

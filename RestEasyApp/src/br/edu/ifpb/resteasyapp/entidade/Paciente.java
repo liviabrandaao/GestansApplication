@@ -60,7 +60,7 @@ public class Paciente {
 	private String email;
 	
 	@Column(name = "telefone_paciente" , nullable = false)
-	private Integer telefone;
+	private String telefone;
 	
 	@Column(name = "tempo_Gestacao" , nullable = false)
 	private Integer tempoGestacao;
@@ -82,7 +82,7 @@ public class Paciente {
 		return medico;
 	}
 	
-	public void setChave(Medico chave) {
+	public void setChave(Medico medico) {
 		this.medico = medico;
 	}
 	
@@ -121,11 +121,11 @@ public class Paciente {
 
 	
 	
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}	
 	

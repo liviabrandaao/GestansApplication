@@ -20,13 +20,13 @@ import br.edu.ifpb.resteasyapp.dao.PacienteDAO;
 import br.edu.ifpb.resteasyapp.entidade.AutoAvaliacao;
 import br.edu.ifpb.resteasyapp.entidade.Paciente;
 
-@Path("autoAvaliacao")
+
 public class AutoAvaliacaoController {
 
 	
 	@PermitAll
 	@POST
-	@Path("/inserir")
+	@Path("autoAvaliacao/inserir")
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Response insert(AutoAvaliacao autoAvaliacao) {
@@ -52,26 +52,67 @@ public class AutoAvaliacaoController {
 	
 	@PermitAll
 	@GET
-	@Path("/listar")
+	@Path("autoAvaliacao/listar/crm/{crm}")
 	@Produces("application/json")
-	public List<AutoAvaliacao> getAll() {
-
-		List<AutoAvaliacao> autoAvaliacao = new ArrayList<AutoAvaliacao>();
+	public Response getAutoAvaliacaoByCRM(@PathParam("crm") int crm) {
+		
+	
+		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
+		builder.expires(new Date());
 
 		try {
+			
+			List<AutoAvaliacao> autoAvaliacoes = AutoAvaliacaoDAO.getInstance().getAutoAvaliacaoByCRM(crm); 
+			
+			if (!autoAvaliacoes.isEmpty()) {
+				
+				builder.status(Response.Status.OK);
+				builder.entity(autoAvaliacoes);
+				
+			} else {
+				
+				builder.status(Response.Status.NOT_FOUND);
+			}
 
-			autoAvaliacao = AutoAvaliacaoDAO.getInstance().getAll();
+		} catch (SQLException exception) {
 
-		} catch (SQLException e) {
+			
+			builder.status(Response.Status.INTERNAL_SERVER_ERROR);
+		}
 
+		// Resposta
+		return builder.build();
 	}
-		return autoAvaliacao;
 	
+	@PermitAll
+	@GET
+	@Path("autoAvaliacao/listar/cpf/{cpf}")
+	@Produces("application/json")
+	public Response getAutoAvaliacaoByCPF(@PathParam("cpf") int cpf) throws SQLException {
+		
+	
+		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
+		builder.expires(new Date());
+
+		List<AutoAvaliacao> autoAvaliacoes = AutoAvaliacaoDAO.getInstance().getAutoAvaliacaoByCPF(cpf); 
+		
+		if (!autoAvaliacoes.isEmpty()) {
+			
+			builder.status(Response.Status.OK);
+			builder.entity(autoAvaliacoes);
+			
+		} else {
+			
+			builder.status(Response.Status.NOT_FOUND);
+		}
+
+		// Resposta
+		return builder.build();
 	}
 	
 	@PermitAll
 	@POST
-	@Path("/deletar")
+	@Path("autoAvaliacao/deletar")
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Response delete(AutoAvaliacao autoAvaliacao) {
@@ -110,7 +151,7 @@ public class AutoAvaliacaoController {
 	
 	@PermitAll
 	@POST
-	@Path("/alterar")
+	@Path("autoAvaliacao/alterar")
 	@Produces("application/json")
 	@Consumes("application/json")
 	public Response update(AutoAvaliacao autoAvaliacao) {
