@@ -43,7 +43,9 @@ public class OpcoesDaContaPacienteActivity extends AppCompatActivity {
         btnAtualizarInfoConta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //update conta
+                Intent intent = new Intent(OpcoesDaContaPacienteActivity.this, UpdatePacienteActivity.class);
+                intent.putExtra("cpf", cpfPaciente);
+                startActivity(intent);
             }
         });
 

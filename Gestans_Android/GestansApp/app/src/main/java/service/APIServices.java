@@ -48,8 +48,15 @@ public interface APIServices {
     @POST("medico/get")
     Call<Medico> getMedico(@Body String crm);
 
+    @POST("paciente/get")
+    Call<Paciente> getPaciente(@Body String cpf);
+
     @POST("medico/alterar")
     Call<Void> updateMed(@Body String crm, Medico medico);
+
+    @POST("paciente/alterar")
+    Call<Void> updatePac(@Body String cpf, Paciente paciente);
+
     /*
     @POST("/verificaChave")
     Call<String> chaveExiste(@Body String chave);
