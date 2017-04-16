@@ -32,8 +32,13 @@ public class AutoAvaliacao {
 	@Column(name = "id_autoAvaliacao")
 	private Integer id;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
+	@JoinColumn(name = "cpf_paciente")
 	private Paciente paciente;
+	
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
+	@JoinColumn(name = "crm_medico")
+	private Medico medico;
 	
 	@Column(name = "data_avaliacao")
 	private Date dataAvaliacao;
@@ -45,37 +50,37 @@ public class AutoAvaliacao {
 	private String localDor;
 	
 	@Column(name = "nivel_febre")
-	private String nivelFrebre;
+	private String nivelFebre;
 	
 	@Column(name = "sangramento")
-	private boolean sangramento;
+	private String sangramento;
 	
 	@Column(name = "falta_de_ar")
-	private boolean faltaDeAr;
+	private String faltaDeAr;
 	
 	@Column(name = "cansaco")
-	private boolean cansaco;
+	private String cansaco;
 	
 	@Column(name = "tosse")
-	private boolean tosse;
+	private String tosse;
 	
 	@Column(name = "dor_de_garganta")
-	private boolean dorDeGarganta;
+	private String dorDeGarganta;
 	
 	@Column(name = "dor_de_cabeca")
-	private boolean dorDeCabeca;
+	private String dorDeCabeca;
 	
 	@Column(name = "dormencia_nos_bracos")
-	private boolean dormenciaNosBracos;
+	private String dormenciaNosBracos;
 	
 	@Column(name = "dormencia_nos_pernas")
-	private boolean dormenciaNosPernas;
+	private String dormenciaNosPernas;
 	
 	@Column(name = "tontura")
-	private boolean tontura;
+	private String tontura;
 	
 	@Column(name = "desmaio")
-	private boolean desmaio;
+	private String desmaio;
 	
 	@Column(name = "outros_sintomas")
 	private String outrosSintomas;
@@ -90,12 +95,20 @@ public class AutoAvaliacao {
 		this.id = id;
 	}
 	
-	public Paciente getPaciente() {
+	public Paciente getCPF() {
 		return paciente;
 	}
 
-	public void setPaciente(Paciente paciente) {
+	public void setCPF(Paciente paciente) {
 		this.paciente = paciente;
+	}
+	
+	public Medico getCRM() {
+		return medico;
+	}
+
+	public void setCRM(Medico medico) {
+		this.medico = medico;
 	}
 	
 	public Date getDataAvaliacao() {
@@ -126,112 +139,112 @@ public class AutoAvaliacao {
 	}
 
 	
-	public String getNivelFrebre() {
-		return nivelFrebre;
+	public String getNivelFebre() {
+		return nivelFebre;
 	}
 
 	
-	public void setNivelFrebre(String nivelFrebre) {
-		this.nivelFrebre = nivelFrebre;
+	public void setNivelFebre(String nivelFebre) {
+		this.nivelFebre = nivelFebre;
 	}
 
 	
-	public boolean getSangramento() {
+	public String getSangramento() {
 		return sangramento;
 	}
 
 	
-	public void setSangramento(boolean sangramento) {
+	public void setSangramento(String sangramento) {
 		this.sangramento = sangramento;
 	}
 
 	
-	public boolean GetFaltaDeAr() {
+	public String GetFaltaDeAr() {
 		return faltaDeAr;
 	}
 
 	
-	public void setFaltaDeAr(boolean faltaDeAr) {
+	public void setFaltaDeAr(String faltaDeAr) {
 		this.faltaDeAr = faltaDeAr;
 	}
 
 	
-	public boolean GetCansaco() {
+	public String GetCansaco() {
 		return cansaco;
 	}
 
 	
-	public void setCansaco(boolean cansaco) {
+	public void setCansaco(String cansaco) {
 		this.cansaco = cansaco;
 	}
 
 	
-	public boolean GetTosse() {
+	public String GetTosse() {
 		return tosse;
 	}
 
 	
-	public void setTosse(boolean tosse) {
+	public void setTosse(String tosse) {
 		this.tosse = tosse;
 	}
 
 	
-	public boolean GetDorDeGarganta() {
+	public String GetDorDeGarganta() {
 		return dorDeGarganta;
 	}
 
 	
-	public void setDorDeGarganta(boolean dorDeGarganta) {
+	public void setDorDeGarganta(String dorDeGarganta) {
 		this.dorDeGarganta = dorDeGarganta;
 	}
 
 	
-	public boolean GetDorDeCabeca() {
+	public String GetDorDeCabeca() {
 		return dorDeCabeca;
 	}
 
 	
-	public void setDorDeCabeca(boolean dorDeCabeca) {
+	public void setDorDeCabeca(String dorDeCabeca) {
 		this.dorDeCabeca = dorDeCabeca;
 	}
 
 	
-	public boolean GetDormenciaNosBracos() {
+	public String GetDormenciaNosBracos() {
 		return dormenciaNosBracos;
 	}
 
 	
-	public void setDormenciaNosBracos(boolean dormenciaNosBracos) {
+	public void setDormenciaNosBracos(String dormenciaNosBracos) {
 		this.dormenciaNosBracos = dormenciaNosBracos;
 	}
 
 	
-	public boolean GetDormenciaNosPernas() {
+	public String GetDormenciaNasPernas() {
 		return dormenciaNosPernas;
 	}
 
 	
-	public void setDormenciaNosPernas(boolean dormenciaNosPernas) {
+	public void setDormenciaNasPernas(String dormenciaNosPernas) {
 		this.dormenciaNosPernas = dormenciaNosPernas;
 	}
 
 	
-	public boolean GetTontura() {
+	public String GetTontura() {
 		return tontura;
 	}
 
 	
-	public void setTontura(boolean tontura) {
+	public void setTontura(String tontura) {
 		this.tontura = tontura;
 	}
 
 	
-	public boolean GetDesmaio() {
+	public String GetDesmaio() {
 		return desmaio;
 	}
 
 	
-	public void setDesmaio(boolean desmaio) {
+	public void setDesmaio(String desmaio) {
 		this.desmaio = desmaio;
 	}
 

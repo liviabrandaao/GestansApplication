@@ -68,4 +68,73 @@ private static AutoAvaliacaoDAO instance;
 		}
 		return autoAvaliacao;
 	}
+
+	public List<AutoAvaliacao> getAutoAvaliacaoByCRM(int crm) throws SQLException {
+		
+Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		List<AutoAvaliacao> AutoAvaliacoes = null;
+		
+		try {
+			
+			String hql = "from AutoAvaliacao as a"
+					+ " where a.crm like :crm";
+			
+			Query query = session.createQuery(hql);
+			query.setParameter("crm", "%" + crm + "%");
+			
+			AutoAvaliacoes = (List<AutoAvaliacao>) query.list();
+	        
+		} catch (HibernateException hibernateException) {
+			
+			session.getTransaction().rollback();
+			
+			throw new SQLException(hibernateException);
+			
+		} finally {
+		
+			session.close();
+		}
+		
+		return AutoAvaliacoes;
+
+	}
+
+	public List<AutoAvaliacao> getAutoAvaliacaoByCPF(int cpf) throws SQLException {
+		
+Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		List<AutoAvaliacao> AutoAvaliacoes = null;
+		
+		try {
+			
+			String hql = "from AutoAvaliacao as a"
+					+ " where a.cpf like :cpf";
+			
+			Query query = session.createQuery(hql);
+			query.setParameter("cpf", "%" + cpf + "%");
+			
+			AutoAvaliacoes = (List<AutoAvaliacao>) query.list();
+	        
+		} catch (HibernateException hibernateException) {
+			
+			session.getTransaction().rollback();
+			
+			throw new SQLException(hibernateException);
+			
+		} finally {
+		
+			session.close();
+		}
+		
+		return AutoAvaliacoes;
+
+	}
+		
+	
+
+	
+
+	
 }
+

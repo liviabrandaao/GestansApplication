@@ -62,9 +62,9 @@ public class MedicoController {
 			
 			if (medico != null) {
 				
-				int cod_u = MedicoDAO.getInstance().findMedicoByChave(medico.getChave()).getId();
+				int cod_u = MedicoDAO.getInstance().findMedicoByCRM(medico.getCRM()).getId();
 				MedicoDAO.getInstance().delete(cod_u);
-				Medico medicoTeste = MedicoDAO.getInstance().findMedicoByChave(medico.getChave());
+				Medico medicoTeste = MedicoDAO.getInstance().findMedicoByCRM(medico.getCRM());
 
 				if (medicoTeste == null) {
 
@@ -99,7 +99,7 @@ public class MedicoController {
 
 		try {
 
-			int cod_u = MedicoDAO.getInstance().findMedicoByChave(medico.getChave()).getId();
+			int cod_u = MedicoDAO.getInstance().findMedicoByCRM(medico.getCRM()).getId();
 			medico.setId(cod_u);
 			MedicoDAO.getInstance().updateByEntity(medico);
 			builder.status(Response.Status.OK).entity(medico);
@@ -123,7 +123,7 @@ public class MedicoController {
 
 		try {
 
-			Medico medicoRecebido = MedicoDAO.getInstance().findMedicoByChave(medico.getChave());
+			Medico medicoRecebido = MedicoDAO.getInstance().findMedicoByCRM(medico.getCRM());
 			
 
 			
