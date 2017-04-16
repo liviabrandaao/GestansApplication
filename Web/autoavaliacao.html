@@ -1,128 +1,158 @@
 <div ng-controller="PacienteController" class="md-padding" ng-cloak>
-  <div>
-      <h1 class="md-title"><i>O que você está sentindo hoje?</i></h1><br/> <br/> 
-      
-    <div layout="column" layout-align="start " flex>
-      Febre:  
-      <md-input-container flex="50">
-        <md-select ng-model="febre" md-selected-text="getFebre()">
-          <md-optgroup>
-            <md-option ng-value="febre" ng-repeat="febre in febre">{{febre}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
-         
-     Sangramento:   
-      <md-input-container flex="50">
-        <md-select ng-model="sangramento" md-selected-text="getSangramento()">
-          <md-optgroup>
-            <md-option ng-value="sangramento" ng-repeat="sangramento in sangramento">{{sangramento}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
-         
+    <div>
+        <h1 class="md-title"><i>O que você está sentindo hoje?</i></h1><br/> <br/>
 
-    Falta de ar:  
-      <md-input-container flex="50">
-        <md-select ng-model="faltaAr" md-selected-text="getFaltaAr()">
-          <md-optgroup>
-            <md-option ng-value="faltaAr" ng-repeat="faltaAr in faltaAr">{{faltaAr}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
-    
-    Cansaço extremo:   
-      <md-input-container flex="50">
-        <md-select ng-model="cansaco" md-selected-text="getCansaco()">
-          <md-optgroup>
-            <md-option ng-value="cansaco" ng-repeat="cansaco in cansaco">{{cansaco}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
+        <div>
+           
+        <div class="row">
+          
+            <div class="col-md-4">
+            <md-input-container class="md-icon-float md-block">
+              <label>Febre</label>
+              <md-select ng-model="autoavaliacao.nivelFebre" required="true">
+                <md-option ng-repeat="f in febre" value="{{f}}" >
+                  {{f}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            </div>
+            
+            <div class="col-md-4">
+            <md-input-container class="md-icon-float md-block">
+              <label>Sangramento</label>
+              <md-select ng-model="autoavaliacao.sangramento" required="true">
+                <md-option ng-repeat="s in sangramento" value="{{s}}" >
+                  {{s}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            </div>
+            
+            <div class="col-md-4">
+            <md-input-container class="md-icon-float md-block">
+              <label>Falta de ar</label>
+              <md-select ng-model="autoavaliacao.faltaDeAr" required="true">
+                <md-option ng-repeat="fa in faltaAr" value="{{fa}}" >
+                  {{fa}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            </div>
+                
+            
+        </div>
+            
+        <div class="row">
+            <div class="col-md-4">
+            <md-input-container class="md-icon-float md-block">
+              <label>Cansaço</label>
+              <md-select ng-model="autoavaliacao.cansaco" required="true">
+                <md-option ng-repeat="c in cansaco" value="{{c}}" >
+                  {{c}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            
+            </div>
+            
+            <div class="col-md-4">
+            <md-input-container class="md-icon-float md-block">
+              <label>Tosse</label>
+              <md-select ng-model="autoavaliacao.tosse" required="true">
+                <md-option ng-repeat="t in tosse" value="{{t}}" >
+                  {{t}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            </div>
+            
+            <div class="col-md-4">
+            <md-input-container class="md-icon-float md-block">
+              <label>Dor de garganta</label>
+              <md-select ng-model="autoavaliacao.dorDeGarganta" required="true">
+                <md-option ng-repeat="dg in dorGarganta" value="{{dg}}" >
+                  {{dg}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            </div>
+        </div>
+            
+        <div class="row">
+            <div class="col-md-4">
+            <md-input-container class="md-icon-float md-block">
+              <label>Dor de cabeça</label>
+              <md-select ng-model="autoavaliacao.dorDeCabeca" required="true">
+                <md-option ng-repeat="cef in cefaleia" value="{{c}}" >
+                  {{c}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            </div>
+            <div class="col-md-4">
+            <md-input-container class="md-icon-float md-block">
+              <label>Dormência nas pernas</label>
+              <md-select ng-model="autoavaliacao.dormenciaNasPernas" required="true">
+                <md-option ng-repeat="dp in dormeciaPernas" value="{{dp}}" >
+                  {{dp}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            </div> 
+            <div class="col-md-4">
+            <md-input-container class="md-icon-float md-block">
+              <label>Dormência nos braços</label>
+              <md-select ng-model="autoavaliacao.dormenciaNosBracos" required="true">
+                <md-option ng-repeat="db in dormeciaBracos" value="{{db}}" >
+                  {{db}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            </div>
+        </div>   
+ 
+        <div class="row">
+            <div class="col-md-4">
+            <md-input-container class="md-icon-float md-block" width="48">
+              <label>Tontura</label>
+              <md-select ng-model="autoavaliacao.tontura" required="true">
+                <md-option ng-repeat="to in tontura" value="{{to}}" >
+                  {{to}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            </div>
+            <div class="col-md-4">
+            <md-input-container class="md-icon-float md-block">
+              <label>Desmaio</label>
+              <md-select ng-model="autoavaliacao.desmaio" required="true">
+                <md-option ng-repeat="d in desmaio" value="{{d}}" >
+                  {{d}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            </div>
+        </div>   
+            
+        <div class="row">
+            <md-checkbox ng-model="autoavaliacao.dorMuscular" aria-label="Dor muscular">
+            </md-checkbox>
+            <div ng-show="teste">
+                <input type="text" ng-model="autoavaliacao.localDor">
+            </div>
+        </div>    
+            
+            
+            
+            
+            
+            
+            
+            
+            
 
-    Tosse forte:   
-      <md-input-container flex="50">
-        <md-select ng-model="tosse" md-selected-text="getTosse()">
-          <md-optgroup>
-            <md-option ng-value="tosse" ng-repeat="tosse in tosse">{{tosse}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
-         
-    Dor na Gargante:   
-      <md-input-container flex="50">
-        <md-select ng-model="dorGarganta" md-selected-text="getDorGarganta()">
-          <md-optgroup>
-            <md-option ng-value="dorGarganta" ng-repeat="dorGarganta in dorGarganta">{{dorGarganta}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
-         
-    Dormência nas Pernas:   
-      <md-input-container flex="50">
-        <md-select ng-model="dormenciaPerna" md-selected-text="getDormenciaPerna()">
-          <md-optgroup>
-            <md-option ng-value="dormenciaPerna" ng-repeat="dormenciaPerna in dormenciaPerna">{{dormenciaPerna}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
-         
-    Dormencia nos Braços:   
-      <md-input-container flex="50">
-        <md-select ng-model="dormenciaBraco" md-selected-text="getDormenciaBraco()">
-          <md-optgroup>
-            <md-option ng-value="dormenciaBraco" ng-repeat="dormenciaBraco in dormenciaBraco">{{dormenciaBraco}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
-         
-    Dores de cabeça constantes:   
-      <md-input-container flex="50">
-        <md-select ng-model="cefaleia" md-selected-text="getCefaleia()">
-          <md-optgroup>
-            <md-option ng-value="cefaleia" ng-repeat="cefaleia in cefaleia">{{cefaleia}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
-         
-    Dores Musculares:   
-      <md-input-container flex="50">
-        <label>Níveis</label>
-        <md-select ng-model="niveis" md-selected-text="getSelectedText()">
-          <md-optgroup label="níveis">
-            <md-option ng-value="item" ng-repeat="item in items">{{item}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
-         
-    Pressão no Peito:   
-      <md-input-container flex="50">
-        <md-select ng-model="pressao" md-selected-text="getPressao()">
-          <md-optgroup>
-            <md-option ng-value="pressao" ng-repeat="pressao in pressao">{{pressao}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
-         
-    Tonturas:   
-      <md-input-container flex="50">
-        <md-select ng-model="tonturas" md-selected-text="getTonturas()">
-          <md-optgroup>
-            <md-option ng-value="tonturas" ng-repeat="tonturas in tonturas">{{tonturas}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
-        
-     Desmaios:   
-      <md-input-container flex="50">
-        <label>Níveis</label>
-        <md-select ng-model="desmaios" md-selected-text="getDesmaios()">
-          <md-optgroup>
-            <md-option ng-value="desmaios" ng-repeat="desmaios in desmaios">{{desmaios}}</md-option>
-          </md-optgroup>
-        </md-select>
-      </md-input-container>
-         
+            <button>Enviar dados</button>
+
+        </div>
     </div>
-  </div>
 </div>

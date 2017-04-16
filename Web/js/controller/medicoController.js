@@ -13,6 +13,7 @@ angulaAppModulo.controller('MedicoController', function (MedicoService, $scope, 
         
     };
     
+    
     $scope.pesquisarPacientePorNome = function (nome) {
         
         console.log("Nome: " + nome);
@@ -27,12 +28,8 @@ angulaAppModulo.controller('MedicoController', function (MedicoService, $scope, 
     
     $scope.limparFormulario = function() {
         
-        // Reinicializa as variáveis nome e alunos.
         $scope.nome = "";
         angular.copy({}, $scope.pacientes);
-        
-        // Reinicializa o estado do campo para os eventos e validação.
-        // É necessário indicar o atributo name no formulário <form>
         $scope.formPesquisa.$setPristine();
         $scope.formPesquisa.$setValidity();
     };

@@ -44,55 +44,49 @@
     <script src="js/service/pacienteService.js"></script>
     <script src="js/service/loginService.js"></script>
     <script src="js/service/atualizacaoService.js"></script>
-    
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/estilo.css">
 
 </head>
 
-<body style="background-color: #f9bede" ng-controller="LoginController">
+<body layout="column">
 
+    <!-- Cabeçalho -->
+    <md-toolbar md-colors="::{backgroundColor: 'pink'}">
+        <div>
+            <h1><i>GESTANS</i></h1>
+        </div>
+    </md-toolbar>
 
-    <md-card layout-padding style="padding-left: 6%; padding-right: 6%; padding-bottom: 4%; padding-top: 3%; background-color: white">
-        <div class="row">
-            <div class="col s12">
-                <h1><i>Login</i></h1><br/>
+    <!-- Conteúdo -->
+    <div flex layout="row">
+
+        <!-- Menu Lateral -->
+        <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+
+            <md-content ng-controller="MenuController">
+                <!-- Menu -->
+                <ul class="nav navbar-nav">
+                    <md-button class="md-primary" ui-sref="paciente/cadastrar" md-colors="::{color: 'pink'}">Cadastro</md-button>
+                    <md-button class="md-primary" href="index.html" md-colors="::{color: 'pink'}">Fazer Login</md-button>
+
+                </ul>
+            </md-content>
+
+        </md-sidenav>
+
+        <!-- Conteúdo que muda dependendo da navegação escolhida -->
+        <div layout="column" flex>
+            <div class="box1">
+                <div ui-view>
+                    <!-- Conteúdo da rota atual -->
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col s3"></div>
-            <div class="col s3">
-                <a href="loginMedico.html">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="images/estetoscopio.jpg" class="hoverable">
-                        </div>
-                        <div class="card-content">
-                            <i>Médico</i>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col s3">
-                <a href="loginPaciente.html">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="images/gestantemenor.jpg" class="hoverable">
-                        </div>
-                        <div class="card-content">
-                            <i>Paciente</i>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col s3"></div>
-        </div>
-
-    </md-card>
-
+    <!-- Rodapé -->
 
 </body>
 

@@ -1,57 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <!-- Angular -->
-    <script type="application/javascript" src="js/lib/angular.min.js"></script>
-    <script src="js/lib/angular-route.min.js"></script>
-    <script src="js/lib/angular-ui-router.min.js"></script>
-    <script src="js/lib/angular-sanitize.min.js"></script>
-    <script src="js/lib/angular-animate.min.js"></script>
-    <script src="js/lib/angular-aria.min.js"></script>
+<div class="container">
 
-    <!-- Angular Material -->
-    <script src="js/lib/angular-material.min.js"></script>
-    <link rel="stylesheet" href="css/angular-material.min.css">
+    <div>
+        <h3 style="color: deeppink"><i>Dados Pessoais</i></h3>
+    </div>
 
-    <!-- JQuery -->
-    <script src="js/lib/jquery.min.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="js/lib/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-
-    <!-- Tether - Dependência obrigatória do Bootstrap -->
-    <script src="js/lib/tether.min.js"></script>
-    <link rel="stylesheet" href="css/tether.min.css">
-
-    <!-- App -->
-    <script src="js/app.js"></script>
-    <script src="js/router/router.js"></script>
-    <script src="js/router/state.js"></script>
-
-    <!-- Controller -->
-    <script src="js/controller/medicoController.js"></script>
-    <script src="js/controller/pacienteController.js"></script>
-    <script src="js/controller/loginController.js"></script>
-    <script src="js/controller/menuController.js"></script>
-    <script src="js/controller/atualizacaoController.js"></script>
-
-    <!-- Service -->
-    <script src="js/service/medicoService.js"></script>
-    <script src="js/service/pacienteService.js"></script>
-    <script src="js/service/loginService.js"></script>
-    <script src="js/service/atualizacaoService.js"></script>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/estilo.css">
-</head>
-<body ng-controller="MedicoController">
-    
-    <div class="container-fluid">
-        <h3 class="page-header" style="color: deeppink"> Cadastro</h3>
-        <form>
-            
-        <div class="row">
+    <div class="row">
             <div class="form-group col-md-6">
                 <label style="color: deeppink">Nome:</label>
                 <input ng-model="medico.nome" type="text" ng-minlength="1" ng-maxlenght="40" required class="form-control" placeholder="Nome" style="color: deeppink">
@@ -89,21 +42,10 @@
                 <label style="color: deeppink">Confirmar Senha:</label>
                 <input type="password" required ng-model="medico.confirmsenha" class="form-control" style="color: deeppink" placeholder="Confirmar Senha">
             </div>
-            
-        </div><br/>
-            
-            <div class="row">
-                <div class="col-md-12">
-                    <button type="submit">Salvar</button>
-                    <a href="cadastrarMedico.html" class="btn btn-default">Cancelar</a>
-                </div>
-            </div>
-        
-        </form>
+        </div>
     
-    </div>
-    
-    
-    
-</body>
-</html>
+        <div>
+            <button>Salvar</button>
+        </div>
+
+</div>

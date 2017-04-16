@@ -37,11 +37,13 @@
     <script src="js/controller/pacienteController.js"></script>
     <script src="js/controller/loginController.js"></script>
     <script src="js/controller/menuController.js"></script>
+    <script src="js/controller/atualizacaoController.js"></script>
 
     <!-- Service -->
     <script src="js/service/medicoService.js"></script>
     <script src="js/service/pacienteService.js"></script>
     <script src="js/service/loginService.js"></script>
+    <script src="js/service/atualizacaoService.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/estilo.css">
@@ -72,8 +74,8 @@
                     <!-- Navegações definidas no state.js para o ui-sref. Não usar pontos (.) na definição da navegação, somente são permitidas as barras (/) -->
 
                     <!-- Adicionar itens do MENU aqui!  -->
-                    <md-button class="md-primary" ui-sref="home" md-colors="::{color: 'pink'}">Início</md-button>
                     <md-button class="md-primary" ui-sref="pesquisarPaciente" md-colors="::{color: 'pink'}">Pesquisar Pacientes</md-button>
+                    <md-button class="md-primary" ui-sref="dadosPessoaisM" md-colors="::{color: 'pink'}">Dados Pessoais</md-button>
 
                 </ul>
             </md-content>

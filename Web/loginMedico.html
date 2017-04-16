@@ -2,6 +2,10 @@
 <html>
 <head>
     
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <!-- Materialize -->
 	<!-- Compiled and minified CSS  -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
@@ -59,24 +63,25 @@
    <md-card layout-padding style="padding-left: 6%; padding-right: 6%; padding-bottom: 4%; padding-top: 3%; background-color: white">
        <h2><i>Login - Médico</i></h2><br/>
        
-       <form>
+       <form name="login">
 			<div class="form-group">
-				<input type="text" name="chave" placeholder="Chave" ng-model="medico.chave"/>
+				<input style="color: deeppink" type="text" name="crm" placeholder="CRM" ng-model="medico.crm" style="width:300px;"/>
 			</div>
 			<div class="u-form-group">
-				<input id="pass" type="password" placeholder="Senha" ng-model="medico.senha"/>
+				<input style="color: deeppink" id="pass" type="password" placeholder="Senha" ng-model="medico.senha" style="width:300px;"/>
 			</div><br/>
 			<div class="form-group">
-				<button ui-sref="homeMedico">Entrar</button>
+				<button ng-click="fazerLoginMedico()" ui-sref="homeMedico">Entrar</button>
 			</div>
-           <div>
-            Não é cadastrado? <button href="cadastrarMedico.html">Junte-se a nós!</button>
-           </div>
 		</form>
-       
-       
+        <div class="row">
+            Para fazer o cadastro,  <a href="homeCadastroMedico.html"> clique aqui!</a>
+        </div>
        
    </md-card> 
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
+	<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
     
     

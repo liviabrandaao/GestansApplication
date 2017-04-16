@@ -61,17 +61,17 @@
        
        <form>
 			<div class="form-group">
-				<input style="color: deeppink" type="text" name="cpf" placeholder="CPF" ng-model="paciente.cpf"/>
+				<input style="color: deeppink" type="text" name="cpf" placeholder="CPF" ng-model="paciente.cpf" style="width:300px;"/>
 			</div>
 			<div class="u-form-group">
-				<input style="color: deeppink" id="pass" type="password" placeholder="Senha" ng-model="paciente.senha"/>
+				<input style="color: deeppink" id="pass" type="password" placeholder="Senha" ng-model="paciente.senha" style="width:300px;"/>
 			</div><br/>
 			<div class="form-group">
-				<button ui-sref="homePaciente">Entrar</button>
+				<button ng-click="fazerLoginPaciente()" ui-sref="homePaciente">Entrar</button>
 			</div>
-           <div>
-            Não é cadastrado? <button ui-sref="cadastrarPaciente">Junte-se a nós!</button>
-           </div>
+           <div class="row">
+            Para fazer o cadastro,  <a href="homeCadastroPaciente.html"> clique aqui!</a>
+        </div>
 		</form>
        
        

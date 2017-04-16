@@ -5,6 +5,10 @@ angulaAppModulo.config(function ($stateProvider, $urlRouterProvider) {
     
     // Estados
     $stateProvider
+        .state("index", {
+            url: "index",
+            templateUrl: "index.html"
+        })
         .state("medico/cadastrar", {
             url: "/medico/cadastrar",
             templateUrl: "cadastrarMedico.html"
@@ -13,8 +17,8 @@ angulaAppModulo.config(function ($stateProvider, $urlRouterProvider) {
             url: "/paciente/cadastrar",
             templateUrl: "cadastrarPaciente.html"
         })
-        .state("loginMedico", {
-            url: "/loginMedico",
+        .state("medico/login", {
+            url: "/medico/login",
             templateUrl: "loginMedico.html"
         })
         .state("home", {
@@ -25,8 +29,8 @@ angulaAppModulo.config(function ($stateProvider, $urlRouterProvider) {
             url: "/paciente/autoavaliacao",
             templateUrl: "autoavaliacao.html"
         })
-        .state("loginPaciente", {
-            url: "/loginPaciente",
+        .state("paciente/login", {
+            url: "paciente/login",
             templateUrl: "loginPaciente.html"
         })
         .state("homeMedico", {
@@ -40,5 +44,22 @@ angulaAppModulo.config(function ($stateProvider, $urlRouterProvider) {
         .state("pesquisarPaciente", {
             url: "/medico/pesquisar",
             templateUrl: "pesquisarPaciente.html"
+        })
+        .state("homeCadastroMedico", {
+            url: "/homeCadastroMedico",
+            templateUrl: "homeCadastroMedico.html"
+        })
+        .state("homeCadastroPaciente", {
+            url: "/homeCadastroPaciente",
+            templateUrl: "homeCadastroPaciente.html"
+        })
+        .state("homeCMP", {
+            url: "/homeCMP",
+            templateUrl: "homeCMP.html"
+        })
+    
+        .state("dadosPessoaisM", {
+            url:"/dadosPessoaisM",
+        templateUrl: "dadosPessoaisM.html"
         })
 });

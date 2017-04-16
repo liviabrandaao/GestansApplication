@@ -2,14 +2,14 @@
 
     <div class="row">
         <div class="page-header">
-            <h1>Pesquisar Pacientes</h1>
+            <h1><i>Pesquisar Pacientes</i></h1>
         </div>
     </div>
-    
+    <br/>
     <div class="row">
         
         <form name="formPesquisa">
-            <input type="text" ng-model="nome" ng-keyup="pesquisarPacientePorNome(nome)" placeholder="Nome da Paciente"><br/>
+            <input type="text" ng-model="nome" ng-keyup="pesquisarPacientePorNome(nome)" placeholder="Nome da Paciente">
             <button ng-click="limparFormulario()">Limpar
             </button>
         </form>
@@ -18,30 +18,9 @@
     
      <div class="row">
 
-        <!-- Listar todos as pacientes, não pesquisa pelo nome -->
-        Deseja listar todas as suas pacientes?  <button ng-click="listarPacientes()">
+        <button ng-click="listarPacientes()">
             Listar todas as Pacientes
         </button>
-    </div>
-    
-    <!-- Exibir lista de Pacientes -->
-    <div class="row">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Contato</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="paciente in pacientes">
-                    <td>{{ paciente.nome }}</td>
-                    <td>{{ paciente.email }}</td>
-                    <td>{{ paciente.telefone }}</td>
-                </tr>
-            </tbody>
-        </table>
     </div>
     
 </div>

@@ -6,6 +6,5 @@ angulaAppModulo.controller('MenuController', function ($scope, $timeout, $mdSide
         .then(function () {
           $log.debug("close LEFT is done");
         });
-
     };
   });

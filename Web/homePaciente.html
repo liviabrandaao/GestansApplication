@@ -16,9 +16,6 @@
     <script src="js/lib/angular-material.min.js"></script>
     <link rel="stylesheet" href="css/angular-material.min.css">
 
-    <!-- JQuery -->
-    <script src="js/lib/jquery.min.js"></script>
-
     <!-- Bootstrap -->
     <script src="js/lib/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -31,17 +28,27 @@
     <script src="js/app.js"></script>
     <script src="js/router/router.js"></script>
     <script src="js/router/state.js"></script>
+    
+    <!-- Materialize -->
+	<!-- Compiled and minified CSS  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0"></script>
 
     <!-- Controller -->
     <script src="js/controller/medicoController.js"></script>
     <script src="js/controller/pacienteController.js"></script>
     <script src="js/controller/loginController.js"></script>
     <script src="js/controller/menuController.js"></script>
+    <script src="js/controller/atualizacaoController.js"></script>
 
     <!-- Service -->
     <script src="js/service/medicoService.js"></script>
     <script src="js/service/pacienteService.js"></script>
     <script src="js/service/loginService.js"></script>
+    <script src="js/service/atualizacaoService.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/estilo.css">
@@ -72,8 +79,8 @@
                     <!-- Navegações definidas no state.js para o ui-sref. Não usar pontos (.) na definição da navegação, somente são permitidas as barras (/) -->
 
                     <!-- Adicionar itens do MENU aqui!  -->
-                    <md-button class="md-primary" ui-sref="home" md-colors="::{color: 'pink'}">Início</md-button>
                     <md-button class="md-primary" ui-sref="paciente/autoavaliacao" md-colors="::{color: 'pink'}">Auto avaliação</md-button>
+                    
                 </ul>
             </md-content>
 
@@ -91,6 +98,10 @@
 
     <!-- Rodapé -->
 
+    
+    
+    <!-- JQuery -->
+    <script src="js/lib/jquery.min.js"></script>
 </body>
 
 </html>
