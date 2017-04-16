@@ -23,11 +23,11 @@ public interface APIServices {
     @POST("paciente/cadastrar")
     Call<Paciente> insert(@Body Paciente paciente);
 
-    @POST("paciente/deletar")
-    Call<Void> delete(@Body String cpf);
-
     @POST("medico/deletar")
     Call<Void> deleteMed(@Body String crm);
+
+    @POST("paciente/deletar")
+    Call<Void> delete(@Body String cpf);
 
     @POST("paciente/adicionarautoavaliacao")
     Call<Autoavaliacao> insert(@Body Autoavaliacao autoavaliacao);

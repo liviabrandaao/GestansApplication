@@ -41,8 +41,7 @@ public class UpdatePacienteActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         final String cpfPaciente = extras.getString("cpf");
 
-        //preenchecampos(cpfPaciente);
-        edtNome.setText("pegou");
+        preenchecampos(cpfPaciente);
 
         btnVoltarOpt.setOnClickListener(new View.OnClickListener() {
             @Override
