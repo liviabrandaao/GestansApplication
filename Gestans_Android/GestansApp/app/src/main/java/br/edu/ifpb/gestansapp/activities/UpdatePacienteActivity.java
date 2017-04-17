@@ -139,6 +139,7 @@ public class UpdatePacienteActivity extends AppCompatActivity {
 
                             } else {
                                 Log.e(this.getClass().toString(), "Error on calling " + response.code() );
+                                Toast.makeText(getApplicationContext(), "Conexão nao foi bem sucedida" ,Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
                             Log.e(this.getClass().toString(), e.getMessage().toString());

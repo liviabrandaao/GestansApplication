@@ -13,7 +13,6 @@ import butterknife.ButterKnife;
 
 public class MenuMedicoActivity extends AppCompatActivity {
 
-    @BindView(R.id.btnPesquisarPacientes) Button btnpesquisarPacientes;
     @BindView(R.id.btnVerAtualizaçõesRecentes) Button btnverAtualizações;
     @BindView(R.id.btnSair) Button btnsair;
     @BindView(R.id.imageAccountoptMed) ImageButton btnConta;
@@ -28,12 +27,6 @@ public class MenuMedicoActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         crmMedico = extras.getString("crm");
 
-        btnpesquisarPacientes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //pesquisa pacientes
-            }
-        });
 
         btnverAtualizações.setOnClickListener(new View.OnClickListener() {
             @Override

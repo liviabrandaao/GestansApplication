@@ -45,25 +45,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pesquisar pacientes"
-            android:theme="@style/MyButton"
-            android:layout_below="@+id/tvBemVindo"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="137dp"
-            android:id="@+id/btnPesquisarPacientes"
-            android:textStyle="bold"
-            android:textColor="@color/cast_expanded_controller_text_color"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="Ver atualizações recentes"
             android:theme="@style/MyButton"
-            android:layout_below="@+id/btnPesquisarPacientes"
-            android:layout_centerHorizontal="true"
+            android:layout_marginTop="148dp"
             android:textStyle="bold"
             android:id="@+id/btnVerAtualizaçõesRecentes"
-            android:textColor="@color/cast_expanded_controller_text_color"/>
+            android:textColor="@color/cast_expanded_controller_text_color"
+            android:layout_below="@+id/btnSair"
+            android:layout_centerHorizontal="true" />
 
 
 

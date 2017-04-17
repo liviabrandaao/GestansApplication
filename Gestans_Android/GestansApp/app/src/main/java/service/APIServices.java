@@ -11,6 +11,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 /**
  * Created by rebeca
@@ -29,7 +30,7 @@ public interface APIServices {
     @POST("paciente/deletar")
     Call<Void> delete(@Body String cpf);
 
-    @POST("paciente/adicionarautoavaliacao")
+    @POST("autoAvaliacao/inserir")
     Call<Autoavaliacao> insert(@Body Autoavaliacao autoavaliacao);
 
     @POST("medico/login")
@@ -39,10 +40,14 @@ public interface APIServices {
     Call<Paciente> loginPaciente(@Body String cpf, String senha);
 
     //Lista as autoavaliacoes de pacientes associados a um medico específico
-    @POST("autoavaliacoes/listar")
-    Call<List<Autoavaliacao>> getAllAutoAvMedico(@Body String crm);
+    @POST("autoAvaliacao/listar/crm/{crm}")
+    Call<List<Autoavaliacao>> getAllAutoAvMedico(@Body @Path("crm") String crm);
 
-    @POST("autoavaliacoes/deletar")
+    /*Serviço ainda não implementado */
+    @POST("autoAvaliacao/listar/cpf/{cpf}")
+    Call<List<Autoavaliacao>> getAllAutoAvPaciente(@Body @Path("cpf") String cpf);
+
+    @POST("autoAvaliacao/deletar")
     Call<Void> deleteAutoAv(@Body Autoavaliacao autoavaliacao);
 
     @POST("medico/get")
@@ -57,13 +62,6 @@ public interface APIServices {
     @POST("paciente/alterar")
     Call<Void> updatePac(@Body String cpf, Paciente paciente);
 
-    /*
-    @POST("/verificaChave")
-    Call<String> chaveExiste(@Body String chave);
-    */
 
-    /*Serviço ainda não implementado */
-    @POST("autoavaliacoes/listarIndividual")
-    Call<List<Autoavaliacao>> getAllAutoAvPaciente(@Body String cpf);
 
 }
