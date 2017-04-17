@@ -18,6 +18,7 @@ import javax.ws.rs.core.Response.ResponseBuilder;
 import br.edu.ifpb.resteasyapp.dao.PacienteDAO;
 import br.edu.ifpb.resteasyapp.entidade.Paciente;
 
+@Path("paciente")
 public class PacienteController {
 
 	

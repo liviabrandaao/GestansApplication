@@ -40,7 +40,7 @@ public class Paciente {
 	
 	@Id
 	@Column(name = "cpf_paciente" , unique = true, nullable = false)
-	private Integer cpf;
+	private String cpf;
 	
 	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
 	@JoinColumn(name = "chave_medico")
@@ -70,11 +70,11 @@ public class Paciente {
 	
 	
 	@XmlElement
-	public int getCPF() {
+	public String getCPF() {
 		return cpf;
 	}
 
-	public void setCPF(int cpf) {
+	public void setCPF(String cpf) {
 		this.cpf = cpf;
 	}	
 	

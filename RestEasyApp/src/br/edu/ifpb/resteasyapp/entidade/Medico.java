@@ -40,7 +40,7 @@ public class Medico {
 	private Integer cpf;
 	
 	@Column(name = "crm_medico" , nullable = false)
-	private Integer crm;
+	private String crm;
 	
 	@Column(name = "telefone_medico" , nullable = false)
 	private String telefone;
@@ -96,11 +96,11 @@ public class Medico {
 		this.cpf = cpf;
 	}	
 	
-	public int getCRM() {
+	public String getCRM() {
 		return crm;
 	}
 
-	public void setCRM(int crm) {
+	public void setCRM(String crm) {
 		this.crm = crm;
 	}	
 	

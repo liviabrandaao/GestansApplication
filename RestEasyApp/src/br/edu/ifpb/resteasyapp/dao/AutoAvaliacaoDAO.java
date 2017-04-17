@@ -69,7 +69,7 @@ private static AutoAvaliacaoDAO instance;
 		return autoAvaliacao;
 	}
 
-	public List<AutoAvaliacao> getAutoAvaliacaoByCRM(int crm) throws SQLException {
+	public List<AutoAvaliacao> getAutoAvaliacaoByCRM(String crm) throws SQLException {
 		
 Session session = HibernateUtil.getSessionFactory().openSession();
 		
@@ -100,7 +100,7 @@ Session session = HibernateUtil.getSessionFactory().openSession();
 
 	}
 
-	public List<AutoAvaliacao> getAutoAvaliacaoByCPF(int cpf) throws SQLException {
+	public List<AutoAvaliacao> getAutoAvaliacaoByCPF(String cpf) throws SQLException {
 		
 Session session = HibernateUtil.getSessionFactory().openSession();
 		

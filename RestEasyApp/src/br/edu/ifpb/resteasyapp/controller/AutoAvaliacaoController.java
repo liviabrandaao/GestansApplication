@@ -54,7 +54,7 @@ public class AutoAvaliacaoController {
 	@GET
 	@Path("autoAvaliacao/listar/crm/{crm}")
 	@Produces("application/json")
-	public Response getAutoAvaliacaoByCRM(@PathParam("crm") int crm) {
+	public Response getAutoAvaliacaoByCRM(@PathParam("crm") String crm) {
 		
 	
 		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
@@ -88,7 +88,7 @@ public class AutoAvaliacaoController {
 	@GET
 	@Path("autoAvaliacao/listar/cpf/{cpf}")
 	@Produces("application/json")
-	public Response getAutoAvaliacaoByCPF(@PathParam("cpf") int cpf) throws SQLException {
+	public Response getAutoAvaliacaoByCPF(@PathParam("cpf") String cpf) throws SQLException {
 		
 	
 		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);

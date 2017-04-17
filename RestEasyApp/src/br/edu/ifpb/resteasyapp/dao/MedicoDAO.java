@@ -35,7 +35,7 @@ private static MedicoDAO instance;
 		return null;
 	}
 	
-public Medico findMedicoByCRM(int crm) throws SQLException{
+public Medico findMedicoByCRM(String crm) throws SQLException{
 		
 	Session session = HibernateUtil.getSessionFactory().openSession();
 	

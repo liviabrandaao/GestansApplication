@@ -35,7 +35,7 @@ private static PacienteDAO instance;
 		return null;
 	}
 	
-public Paciente findPacienteByCPF(int cpf) throws SQLException{
+public Paciente findPacienteByCPF(String cpf) throws SQLException{
 		
 Session session = HibernateUtil.getSessionFactory().openSession();
 	
