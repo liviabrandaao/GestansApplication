@@ -27,10 +27,56 @@ import com.sun.xml.txw2.annotation.XmlElement;
 public class AutoAvaliacao {
 
 	// Identificador auto-incrementável.
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_autoAvaliacao")
 	private Integer id;
+	
+	@Column(name = "dt_Avaliacao")
+	private String dtAvaliacao;
+	
+	@Column(name = "nivel_Dor_Muscular")
+	private String nivelDorMuscular;
+	
+	@Column(name = "nivel_febre")
+	private String nivelFebre;
+	
+	@Column(name = "local_dor_muscular")
+	private String localDorMuscular;
+	
+	@Column(name = "sangramento")
+	private String sangramento;
+	
+	@Column(name = "falta_de_ar")
+	private String faltadear;
+	
+	@Column(name = "cansaco")
+	private String cansaco;
+	
+	@Column(name = "tosse")
+	private String tosse;
+	
+	@Column(name = "dor_de_garganta")
+	private String dordegarganta;
+	
+	@Column(name = "dor_de_cabeca")
+	private String dordecabeca;
+	
+	@Column(name = "dormencia_nos_bracos")
+	private String dormenciabracos;
+	
+	@Column(name = "dormencia_nos_pernas")
+	private String dormenciapernas;
+	
+	@Column(name = "tonturas")
+	private String tonturas;
+	
+	@Column(name = "desmaios")
+	private String desmaios;
+	
+	@Column(name = "outros_sintomas")
+	private String outrosSintomas;
 	
 	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
 	@JoinColumn(name = "cpf_paciente")
@@ -40,51 +86,7 @@ public class AutoAvaliacao {
 	@JoinColumn(name = "crm_medico")
 	private Medico medico;
 	
-	@Column(name = "data_avaliacao")
-	private Date dataAvaliacao;
-	
-	@Column(name = "dor_muscular")
-	private String dorMuscular;
-	
-	@Column(name = "local_dor_muscular")
-	private String localDor;
-	
-	@Column(name = "nivel_febre")
-	private String nivelFebre;
-	
-	@Column(name = "sangramento")
-	private String sangramento;
-	
-	@Column(name = "falta_de_ar")
-	private String faltaDeAr;
-	
-	@Column(name = "cansaco")
-	private String cansaco;
-	
-	@Column(name = "tosse")
-	private String tosse;
-	
-	@Column(name = "dor_de_garganta")
-	private String dorDeGarganta;
-	
-	@Column(name = "dor_de_cabeca")
-	private String dorDeCabeca;
-	
-	@Column(name = "dormencia_nos_bracos")
-	private String dormenciaNosBracos;
-	
-	@Column(name = "dormencia_nos_pernas")
-	private String dormenciaNosPernas;
-	
-	@Column(name = "tontura")
-	private String tontura;
-	
-	@Column(name = "desmaio")
-	private String desmaio;
-	
-	@Column(name = "outros_sintomas")
-	private String outrosSintomas;
-	
+		
 	
 	@XmlElement
 	public Integer getId() {
@@ -95,60 +97,39 @@ public class AutoAvaliacao {
 		this.id = id;
 	}
 	
-	public Paciente getCPF() {
-		return paciente;
-	}
-
-	public void setCPF(Paciente paciente) {
-		this.paciente = paciente;
+	public String getDataAvaliacao() {
+		return dtAvaliacao;
 	}
 	
-	public Medico getCRM() {
-		return medico;
+	public void setDataAvaliacao(String dtAvaliacao) {
+		this.dtAvaliacao = dtAvaliacao;
 	}
-
-	public void setCRM(Medico medico) {
-		this.medico = medico;
-	}
-	
-	public Date getDataAvaliacao() {
-		return dataAvaliacao;
-	}
-	
-	public void setDataAvaliacao(Date dataAvaliacao) {
-		this.dataAvaliacao = dataAvaliacao;
-	}
-
 	
 	public String getDorMuscular() {
-		return dorMuscular;
+		return nivelDorMuscular;
 	}
 
-	public void setDorMuscular(String dorMuscular) {
-		this.dorMuscular = dorMuscular;
+	public void setDorMuscular(String nivelDorMuscular) {
+		this.nivelDorMuscular = nivelDorMuscular;
 	}
-
-	
-	public String getLocalDor() {
-		return localDor;
-	}
-
-	
-	public void setLocalDor(String localDor) {
-		this.localDor = localDor;
-	}
-
 	
 	public String getNivelFebre() {
 		return nivelFebre;
 	}
-
 	
 	public void setNivelFebre(String nivelFebre) {
 		this.nivelFebre = nivelFebre;
 	}
+	
+	public String getLocalDor() {
+		return localDorMuscular;
+	}
 
 	
+	public void setLocalDor(String localDorMuscular) {
+		this.localDorMuscular = localDorMuscular;
+	}
+
 	public String getSangramento() {
 		return sangramento;
 	}
@@ -158,17 +139,15 @@ public class AutoAvaliacao {
 		this.sangramento = sangramento;
 	}
 
-	
 	public String GetFaltaDeAr() {
-		return faltaDeAr;
+		return faltadear;
 	}
 
 	
-	public void setFaltaDeAr(String faltaDeAr) {
-		this.faltaDeAr = faltaDeAr;
+	public void setFaltaDeAr(String faltadear) {
+		this.faltadear = faltadear;
 	}
 
-	
 	public String GetCansaco() {
 		return cansaco;
 	}
@@ -188,65 +167,112 @@ public class AutoAvaliacao {
 		this.tosse = tosse;
 	}
 
-	
+
 	public String GetDorDeGarganta() {
-		return dorDeGarganta;
+		return dordegarganta;
 	}
 
 	
-	public void setDorDeGarganta(String dorDeGarganta) {
-		this.dorDeGarganta = dorDeGarganta;
+	public void setDorDeGarganta(String dordegarganta) {
+		this.dordegarganta = dordegarganta;
 	}
 
-	
 	public String GetDorDeCabeca() {
-		return dorDeCabeca;
+		return dordecabeca;
 	}
 
 	
-	public void setDorDeCabeca(String dorDeCabeca) {
-		this.dorDeCabeca = dorDeCabeca;
+	public void setDorDeCabeca(String dordecabeca) {
+		this.dordecabeca = dordecabeca;
 	}
 
-	
 	public String GetDormenciaNosBracos() {
-		return dormenciaNosBracos;
+		return dormenciabracos;
 	}
 
 	
-	public void setDormenciaNosBracos(String dormenciaNosBracos) {
-		this.dormenciaNosBracos = dormenciaNosBracos;
+	public void setDormenciaNosBracos(String dormenciabracos) {
+		this.dormenciabracos = dormenciabracos;
 	}
 
 	
 	public String GetDormenciaNasPernas() {
-		return dormenciaNosPernas;
+		return dormenciapernas;
 	}
 
 	
-	public void setDormenciaNasPernas(String dormenciaNosPernas) {
-		this.dormenciaNosPernas = dormenciaNosPernas;
+	public void setDormenciaNasPernas(String dormenciapernas) {
+		this.dormenciapernas = dormenciapernas;
 	}
-
 	
 	public String GetTontura() {
-		return tontura;
+		return tonturas;
 	}
 
 	
-	public void setTontura(String tontura) {
-		this.tontura = tontura;
+	public void setTontura(String tonturas) {
+		this.tonturas = tonturas;
 	}
 
 	
 	public String GetDesmaio() {
-		return desmaio;
+		return desmaios;
 	}
 
 	
-	public void setDesmaio(String desmaio) {
-		this.desmaio = desmaio;
+	public void setDesmaio(String desmaios) {
+		this.desmaios = desmaios;
 	}
+	
+
+	public String GetOutrosSintomas() {
+		return outrosSintomas;
+	}
+
+	
+	public void setPutrosSintomas(String outrosSintomas) {
+		this.outrosSintomas = outrosSintomas;
+	}
+	
+	
+	
+	public Paciente getCPF() {
+		return paciente;
+	}
+
+	public void setCPF(Paciente paciente) {
+		this.paciente = paciente;
+	}
+	
+	public Medico getCRM() {
+		return medico;
+	}
+
+	public void setCRM(Medico medico) {
+		this.medico = medico;
+	}
+	
+	
+
+	
+	
+
+	
+
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+	
+
+	
+	
 
 	
 	public String getOutrosSintomas() {

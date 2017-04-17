@@ -19,16 +19,9 @@ public class Medico {
 
 	// Identificador auto-incrementável.
 	
-	@Id
-	@Column(name = "chave_medico", unique = true , nullable = false)
-	private String chave;
-	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_medico")
 	private Integer id;
-	
-	@Column(name = "senha_medico", nullable = false)
-	private String senha;
 	
 	@Column(name = "nome_medico" , nullable = false)
 	private String nome;
@@ -37,23 +30,26 @@ public class Medico {
 	private String email;
 	
 	@Column(name = "cpf_medico")
-	private String cpf;
+	private String CPF;
 	
 	@Column(name = "crm_medico" , nullable = false)
-	private String crm;
+	private String CRM;
 	
 	@Column(name = "telefone_medico" , nullable = false)
 	private String telefone;
 	
-	@XmlElement
-	public String getChave() {
-		return chave;
-	}
-
-	public void setChave(String chave) {
-		this.chave = chave;
-	}
+	@Id
+	@Column(name = "chave_medico", unique = true , nullable = false)
+	private String chave;
 	
+	@Column(name = "senha_medico", nullable = false)
+	private String senha;
+	
+	
+	
+	
+	
+	@XmlElement
 	public Integer getId() {
 		return id;
 	}
@@ -62,15 +58,6 @@ public class Medico {
 		this.id = id;
 	}
 	
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	@XmlElement
 	public String getNome() {
 		return nome;
 	}
@@ -89,19 +76,19 @@ public class Medico {
 	}
 
 	public String getCPF() {
-		return cpf;
+		return CPF;
 	}
 
-	public void setCPF(String cpf) {
-		this.cpf = cpf;
+	public void setCPF(String CPF) {
+		this.CPF = CPF;
 	}	
 	
 	public String getCRM() {
-		return crm;
+		return CRM;
 	}
 
-	public void setCRM(String crm) {
-		this.crm = crm;
+	public void setCRM(String CRM) {
+		this.CRM = CRM;
 	}	
 	
 	public String getTelefone() {
@@ -111,6 +98,27 @@ public class Medico {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}	
+	
+	public String getChave() {
+		return chave;
+	}
+
+	public void setChave(String chave) {
+		this.chave = chave;
+	}
+	
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	
+	
+	
+	
 	
 	
 }

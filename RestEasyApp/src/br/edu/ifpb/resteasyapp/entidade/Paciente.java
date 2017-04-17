@@ -36,70 +36,43 @@ import br.edu.ifpb.resteasyapp.dao.PacienteDAO;
 @NamedQuery(name = "Paciente.getAll", query = "from Paciente")
 public class Paciente {
 
-
-	
-	@Id
-	@Column(name = "cpf_paciente" , unique = true, nullable = false)
-	private String cpf;
-	
-	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
-	@JoinColumn(name = "chave_medico")
-	private Medico medico;
-		
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_paciente")
 	private Integer id;
-	
-	@Column(name = "senha_paciente", nullable = false)
-	private String senha;
-	
+
 	@Column(name = "nome_paciente", nullable = false)
 	private String nome;
 	
 	@Column(name = "email_paciente")
 	private String email;
 	
+	@Id
+	@Column(name = "cpf_paciente", nullable = false)
+	private String CPF;
+	
+	@Column(name = "tempo_Gestacao" , nullable = false)
+	private Integer numeroDeSemanas;
+	
+	@Column(name = "motivo_paciente" , nullable = false)
+	private String motivo;
+	
 	@Column(name = "telefone_paciente" , nullable = false)
 	private String telefone;
 	
-	@Column(name = "tempo_Gestacao" , nullable = false)
-	private Integer tempoGestacao;
-	
-	@Column(name = "situacao_paciente" , nullable = false)
-	private String situacao;
-	
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
+	@JoinColumn(name = "chave_medico")
+	private Medico medico;
+		
+	@Column(name = "senha_paciente", nullable = false)
+	private String senha;	
 	
 	@XmlElement
-	public String getCPF() {
-		return cpf;
-	}
-
-	public void setCPF(String cpf) {
-		this.cpf = cpf;
-	}	
-	
-	public Medico getChave() {
-		return medico;
-	}
-	
-	public void setChave(Medico medico) {
-		this.medico = medico;
-	}
-	
 	public Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 	
 	public String getNome() {
@@ -118,9 +91,32 @@ public class Paciente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public String getCPF() {
+		return CPF;
+	}
 
+	public void setCPF(String CPF) {
+		this.CPF = CPF;
+	}	
 	
+	public int getTempoDeGestacao() {
+		return numeroDeSemanas;
+	}
+
+	public void setTempoDeGestacao(int numeroDeSemanas) {
+		this.numeroDeSemanas = numeroDeSemanas;
+	}	
 	
+	public String getSituacao() {
+		return motivo;
+	}
+
+	public void setSituacao(String motivo) {
+		this.motivo = motivo;
+	}
+	
+
 	public String getTelefone() {
 		return telefone;
 	}
@@ -129,21 +125,28 @@ public class Paciente {
 		this.telefone = telefone;
 	}	
 	
-	public int getTempoDeGestacao() {
-		return tempoGestacao;
-	}
-
-	public void setTempoDeGestacao(int tempoGestacao) {
-		this.tempoGestacao = tempoGestacao;
-	}	
 	
-	public String getSituacao() {
-		return situacao;
+	public Medico getChave() {
+		return medico;
+	}
+	
+	public void setChave(Medico medico) {
+		this.medico = medico;
 	}
 
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
+	public String getSenha() {
+		return senha;
 	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	
+	
+
+	
+	
+	
 	
 	
 }
