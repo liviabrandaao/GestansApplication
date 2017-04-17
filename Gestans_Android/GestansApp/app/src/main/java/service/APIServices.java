@@ -34,7 +34,7 @@ public interface APIServices {
     Call<Autoavaliacao> insert(@Body Autoavaliacao autoavaliacao);
 
     @POST("medico/login")
-    Call<Medico> loginMedico(@Body String chave, String senha);
+    Call<Medico> loginMedico(@Body String crm, String senha);
 
     @POST("paciente/login")
     Call<Paciente> loginPaciente(@Body String cpf, String senha);

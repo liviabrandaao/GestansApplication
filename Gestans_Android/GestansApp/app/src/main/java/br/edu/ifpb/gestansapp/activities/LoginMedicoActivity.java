@@ -1,7 +1,6 @@
 package br.edu.ifpb.gestansapp.activities;
 
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,7 +22,7 @@ import service.ServerConnection;
 public class LoginMedicoActivity extends AppCompatActivity {
 
     @BindView(R.id.edtSenhaMedicologin) EditText edtSenha;
-    @BindView(R.id.edtChaveMedicologin) EditText edtChave;
+    @BindView(R.id.edtCRMMedicologin) EditText edtCRM;
     @BindView(R.id.btnEntrar) Button btnEntrar;
     @BindView(R.id.btnCadastrarMedico) Button btnCadastrar;
     @BindView(R.id.btnMedVoltarMenuInicial) FloatingActionButton btnVoltar;
@@ -39,12 +38,12 @@ public class LoginMedicoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                //validaMedico();
-                if (edtChave.getText().toString().equals("admin") && edtSenha.getText().toString().equals("admin")){
+                if (edtCRM.getText().toString().equals("admin") && edtSenha.getText().toString().equals("admin")){
                     Intent i = new Intent(LoginMedicoActivity.this, MenuMedicoActivity.class);
                     i.putExtra("crm", "medicoteste");
                     startActivity(i);
                 } else {
-                    edtChave.setText("");
+                    edtCRM.setText("");
                     edtSenha.setText("");
                     Toast.makeText(getApplicationContext(),"Chave ou senha inválidos!", Toast.LENGTH_SHORT).show();
                 }
@@ -73,15 +72,15 @@ public class LoginMedicoActivity extends AppCompatActivity {
     public void validaMedico() {
 
         new Thread(new Runnable() {
-            String chave = edtChave.getText().toString();
+            String crm = edtCRM.getText().toString();
             String senha = edtSenha.getText().toString();
 
             @Override
             public void run() {
 
-                ServerConnection.getInstance().getService().loginMedico(chave, senha);
+                ServerConnection.getInstance().getService().loginMedico(crm, senha);
 
-                Call<Medico> call = ServerConnection.getInstance().getService().loginMedico(chave, senha);
+                Call<Medico> call = ServerConnection.getInstance().getService().loginMedico(crm, senha);
 
                 Log.i(this.getClass().getName(), "Verificando campos");
 
@@ -123,7 +122,7 @@ public class LoginMedicoActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         } else {
-            edtChave.setText("");
+            edtCRM.setText("");
             edtSenha.setText("");
             return false;
         }*/
