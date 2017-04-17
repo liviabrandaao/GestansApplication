@@ -100,8 +100,9 @@ Session session = HibernateUtil.getSessionFactory().openSession();
 
 	}
 
+	
+
 	public List<AutoAvaliacao> getAutoAvaliacaoByCPF(String cpf) throws SQLException {
-		
 Session session = HibernateUtil.getSessionFactory().openSession();
 		
 		List<AutoAvaliacao> AutoAvaliacoes = null;
@@ -130,6 +131,7 @@ Session session = HibernateUtil.getSessionFactory().openSession();
 		return AutoAvaliacoes;
 
 	}
+		
 		
 	
 

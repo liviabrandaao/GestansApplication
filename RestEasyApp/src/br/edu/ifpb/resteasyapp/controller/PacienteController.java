@@ -15,7 +15,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
+import br.edu.ifpb.resteasyapp.dao.MedicoDAO;
 import br.edu.ifpb.resteasyapp.dao.PacienteDAO;
+import br.edu.ifpb.resteasyapp.entidade.Medico;
 import br.edu.ifpb.resteasyapp.entidade.Paciente;
 
 @Path("paciente")
@@ -110,6 +112,45 @@ public class PacienteController {
 		}
 		return builder.build();
 
+	}
+	
+	@PermitAll
+	@POST
+	@Path("/login")
+	@Produces("application/json")
+	@Consumes("application/json")
+	public Response login(Paciente cpf, Paciente senha) {
+
+		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
+		builder.expires(new Date());
+
+		try {
+
+			Paciente pacienteRecebido = PacienteDAO.getInstance().findPacienteByCPF(cpf.getCPF());
+			
+
+			
+			if (pacienteRecebido.getSenha().equals(cpf.getSenha())){
+				
+				builder.status(Response.Status.OK).entity(pacienteRecebido);
+			
+			} else {
+				
+				if (pacienteRecebido.getSenha() == null || pacienteRecebido.getSenha().isEmpty()){
+				
+					builder.status(Response.Status.EXPECTATION_FAILED).entity(pacienteRecebido);
+				
+				} else {
+					
+					builder.status(Response.Status.BAD_REQUEST).entity(pacienteRecebido);
+				}
+			}
+
+		} catch (SQLException exception) {
+			builder.status(Response.Status.INTERNAL_SERVER_ERROR);
+		}
+
+		return builder.build();
 	}
 	
 	

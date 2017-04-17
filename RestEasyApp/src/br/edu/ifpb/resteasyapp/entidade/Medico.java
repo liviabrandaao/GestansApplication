@@ -37,7 +37,7 @@ public class Medico {
 	private String email;
 	
 	@Column(name = "cpf_medico")
-	private Integer cpf;
+	private String cpf;
 	
 	@Column(name = "crm_medico" , nullable = false)
 	private String crm;
@@ -88,11 +88,11 @@ public class Medico {
 		this.email = email;
 	}
 
-	public int getCPF() {
+	public String getCPF() {
 		return cpf;
 	}
 
-	public void setCPF(int cpf) {
+	public void setCPF(String cpf) {
 		this.cpf = cpf;
 	}	
 	

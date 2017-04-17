@@ -116,18 +116,18 @@ public class MedicoController {
 	@Path("/login")
 	@Produces("application/json")
 	@Consumes("application/json")
-	public Response login(Medico medico) {
+	public Response login(Medico crm, Medico senha) {
 
 		ResponseBuilder builder = Response.status(Response.Status.BAD_REQUEST);
 		builder.expires(new Date());
 
 		try {
 
-			Medico medicoRecebido = MedicoDAO.getInstance().findMedicoByCRM(medico.getCRM());
+			Medico medicoRecebido = MedicoDAO.getInstance().findMedicoByCRM(crm.getCRM());
 			
 
 			
-			if (medicoRecebido.getSenha().equals(medico.getSenha())){
+			if (medicoRecebido.getSenha().equals(crm.getSenha())){
 				
 				builder.status(Response.Status.OK).entity(medicoRecebido);
 			
