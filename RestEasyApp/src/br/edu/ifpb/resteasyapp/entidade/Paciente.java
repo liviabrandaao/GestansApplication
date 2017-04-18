@@ -61,7 +61,7 @@ public class Paciente {
 	
 	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
 	@JoinColumn(name = "chave_medico")
-	private Medico medico;
+	private String chave;
 		
 	@Column(name = "senha_paciente", nullable = false)
 	private String senha;	
@@ -100,22 +100,22 @@ public class Paciente {
 		this.CPF = CPF;
 	}	
 	
-	public int getTempoDeGestacao() {
+
+	public Integer getNumeroDeSemanas() {
 		return numeroDeSemanas;
 	}
 
-	public void setTempoDeGestacao(int numeroDeSemanas) {
+	public void setNumeroDeSemanas(Integer numeroDeSemanas) {
 		this.numeroDeSemanas = numeroDeSemanas;
-	}	
-	
-	public String getSituacao() {
+	}
+
+	public String getMotivo() {
 		return motivo;
 	}
 
-	public void setSituacao(String motivo) {
+	public void setMotivo(String motivo) {
 		this.motivo = motivo;
 	}
-	
 
 	public String getTelefone() {
 		return telefone;
@@ -126,12 +126,12 @@ public class Paciente {
 	}	
 	
 	
-	public Medico getChave() {
-		return medico;
+	public String getChave() {
+		return chave;
 	}
 	
-	public void setChave(Medico medico) {
-		this.medico = medico;
+	public void setChave(String chave) {
+		this.chave = chave;
 	}
 
 	public String getSenha() {
