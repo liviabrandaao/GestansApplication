@@ -1,6 +1,6 @@
-<div ng-controller="PacienteController" class="md-padding" ng-cloak>
+<div ng-controller="AutoAvaliacaoController" class="md-padding" ng-cloak>
     <div>
-        <h1 class="md-title"><i>O que você está sentindo hoje?</i></h1><br/> <br/>
+        <h1 class="md-title"><i>O que você está sentindo hoje?</i></h1><br/>
 
         <div>
            
@@ -83,8 +83,8 @@
             <md-input-container class="md-icon-float md-block">
               <label>Dor de cabeça</label>
               <md-select ng-model="autoavaliacao.dorDeCabeca" required="true">
-                <md-option ng-repeat="cef in cefaleia" value="{{c}}" >
-                  {{c}}
+                <md-option ng-repeat="cef in cefaleia" value="{{cef}}" >
+                  {{cef}}
                 </md-option>
               </md-select>
             </md-input-container>
@@ -93,7 +93,7 @@
             <md-input-container class="md-icon-float md-block">
               <label>Dormência nas pernas</label>
               <md-select ng-model="autoavaliacao.dormenciaNasPernas" required="true">
-                <md-option ng-repeat="dp in dormeciaPernas" value="{{dp}}" >
+                <md-option ng-repeat="dp in dormenciaPerna" value="{{dp}}" >
                   {{dp}}
                 </md-option>
               </md-select>
@@ -103,7 +103,7 @@
             <md-input-container class="md-icon-float md-block">
               <label>Dormência nos braços</label>
               <md-select ng-model="autoavaliacao.dormenciaNosBracos" required="true">
-                <md-option ng-repeat="db in dormeciaBracos" value="{{db}}" >
+                <md-option ng-repeat="db in dormenciaBraco" value="{{db}}" >
                   {{db}}
                 </md-option>
               </md-select>
@@ -141,16 +141,7 @@
                 <input type="text" ng-model="autoavaliacao.localDor">
             </div>
         </div>    
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
+       
             <button>Enviar dados</button>
 
         </div>
